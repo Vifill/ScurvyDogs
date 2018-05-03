@@ -1,15 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
+using UnityEngine.UI;
 
-public class EnemyHealth : MonoBehaviour {
+public class EnemyHealth : NetworkBehaviour {
 
     public float maxHP;
+    [SyncVar(hook = "OnHealthChange")]
     public float currentHP;
     public GameObject Orange;
     public AudioClip DamageSFX;
     public GameObject HitParticle;
     public GameObject DestroyParticle;
+    public Image HealthBar;
+    public GameObject HealthBarCanvas;
 
     private float AudioTimer = 0;
     private bool AudioTimerStart = false;
@@ -56,6 +61,7 @@ public class EnemyHealth : MonoBehaviour {
         Instantiate(Orange, spawnPos, Quaternion.identity);
         Instantiate(DestroyParticle, transform.position, Quaternion.Euler(Vector3.zero));
         transform.GetChild(0).gameObject.SetActive(false);
+        HealthBarCanvas.SetActive(false);
         GetComponent<ShootingSystem>().enabled = false;
         eSpawn.enemyCount -= 1;
         Invoke("DestroyTheShip", 2f);
@@ -72,6 +78,11 @@ public class EnemyHealth : MonoBehaviour {
 
             Destroy(particle, 3);
         }
+    }
+
+    private void OnHealthChange(float pCurrentHealth)
+    {
+        HealthBar.fillAmount = currentHP / 100;
     }
 
     private void DestroyTheShip()
