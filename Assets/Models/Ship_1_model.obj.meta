@@ -1,0 +1,127 @@
+fileFormatVersion: 2
+guid: 95bc17bced7a8e5459905682b248b065
+timeCreated: 1490635343
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Cannon1_CannonHole1_Cannon1
+    100002: Cannon2_CannonHole1_Cannon2
+    100004: Cannon3_CannonHole1_Cannon3
+    100006: Cannon4_CannonHole1_Cannon4
+    100008: Cannon5_CannonHole1_Cannon5
+    100010: Cannon6_CannonBarrel
+    100012: CannonHole1_Cannon6
+    100014: Mast1_Wood1
+    100016: //RootNode
+    100018: SmallMast2_Sail1
+    100020: Cannon5_CannonHole1
+    400000: Cannon1_CannonHole1_Cannon1
+    400002: Cannon2_CannonHole1_Cannon2
+    400004: Cannon3_CannonHole1_Cannon3
+    400006: Cannon4_CannonHole1_Cannon4
+    400008: Cannon5_CannonHole1_Cannon5
+    400010: Cannon6_CannonBarrel
+    400012: CannonHole1_Cannon6
+    400014: Mast1_Wood1
+    400016: //RootNode
+    400018: SmallMast2_Sail1
+    400020: Cannon5_CannonHole1
+    2300000: Cannon1_CannonHole1_Cannon1
+    2300002: Cannon2_CannonHole1_Cannon2
+    2300004: Cannon3_CannonHole1_Cannon3
+    2300006: Cannon4_CannonHole1_Cannon4
+    2300008: Cannon5_CannonHole1_Cannon5
+    2300010: Cannon6_CannonBarrel
+    2300012: CannonHole1_Cannon6
+    2300014: Mast1_Wood1
+    2300016: SmallMast2_Sail1
+    2300018: Cannon5_CannonHole1
+    3300000: Cannon1_CannonHole1_Cannon1
+    3300002: Cannon2_CannonHole1_Cannon2
+    3300004: Cannon3_CannonHole1_Cannon3
+    3300006: Cannon4_CannonHole1_Cannon4
+    3300008: Cannon5_CannonHole1_Cannon5
+    3300010: Cannon6_CannonBarrel
+    3300012: CannonHole1_Cannon6
+    3300014: Mast1_Wood1
+    3300016: SmallMast2_Sail1
+    3300018: Cannon5_CannonHole1
+    4300000: Cannon1_CannonHole1_Cannon1
+    4300002: Cannon2_CannonHole1_Cannon2
+    4300004: Cannon3_CannonHole1_Cannon3
+    4300006: Cannon4_CannonHole1_Cannon4
+    4300008: Cannon5_CannonHole1_Cannon5
+    4300010: Cannon6_CannonBarrel
+    4300012: CannonHole1_Cannon6
+    4300014: Mast1_Wood1
+    4300016: SmallMast2_Sail1
+    4300018: Cannon5_CannonHole1
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 22
+    normalImportMode: 1
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
