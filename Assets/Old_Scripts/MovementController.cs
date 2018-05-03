@@ -1,8 +1,9 @@
-﻿    using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class MovementController : MonoBehaviour
+public class MovementController : NetworkBehaviour
 {
     public float LowSpeed;
     public float MediumSpeed;
@@ -38,15 +39,17 @@ public class MovementController : MonoBehaviour
     }
 
 	// Use this for initialization
-	private void Start ()
+	private void Start()
 	{
 	    Rigidbody = GetComponent<Rigidbody>();
 	    ChangeSails();
 	}
 	
 	// Update is called once per frame
-	private void Update ()
+	private void Update()
     {
+        //Don't do anything if you're not the player
+        if (!isLocalPlayer) return;
         RegisterInput();
         ModulateSpeed();
         Rotate();

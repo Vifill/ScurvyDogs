@@ -2,121 +2,132 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
+using System;
 
-public class UIManager : MonoBehaviour {
+public class UIManager : NetworkBehaviour
+{
+    GameObject[] DeathObjects;
+    GameObject[] PauseObjects;
 
-    GameObject[] deathObjects;
-    GameObject[] pauseObjects;
+    public Image ScurvyMeterImage;
+    public Image HealthMeterImage;
 
-    public Image scurvyMeter;
-    public Image healthMeter;
-    public Text scurvyText;
-    public Text healthText;
-    public Text timerText;
-    public Text deathTimeText;
-    public Text deathText;
+    public Text ScurvyText;
+    public Text HealthText;
+    public Text TimerText;
+    public Text DeathTimeText;
+    public Text DeathText;
 
-    private float healthPercent;
-    private float scurvyPercent;
-    private float timer;
-    private string niceTime;
+    private float HealthPercent;
+    private float ScurvyPercent;
+    private float Timer;
+    private string NiceTime;
 
-    private HealthSystem healthSys;
+    private HealthSystem HealthSys;
 
 	// Use this for initialization
-	void Start () {
-        healthSys = GameObject.FindWithTag("Player").GetComponent<HealthSystem>();
-        pauseObjects = GameObject.FindGameObjectsWithTag("PauseMenu");
-        deathObjects = GameObject.FindGameObjectsWithTag("DeathMenu");
-        hideDeath();
-        hidePaused();
+	void Start ()
+	{
+        
     }
-	
-	// Update is called once per frame
-	void Update () {
-        timer += Time.deltaTime;
-        healthText.text = "HP: " + healthSys.currentHP.ToString("#");
-        scurvyText.text = "Scurvy " + healthSys.currentScurvy.ToString("#") + "%";
-        int minutes = Mathf.FloorToInt(timer / 60F);
-        int seconds = Mathf.FloorToInt(timer - minutes * 60);
-        niceTime = string.Format("{0:0}:{1:00}", minutes, seconds);
-        timerText.text = niceTime;
+
+    internal void Initialize(GameObject pGameObject)
+    {
+        HealthSys = pGameObject.GetComponent<HealthSystem>();
+        PauseObjects = GameObject.FindGameObjectsWithTag("PauseMenu");
+        DeathObjects = GameObject.FindGameObjectsWithTag("DeathMenu");
+        HideDeath();
+        HidePaused();
+    }
+    
+
+    // Update is called once per frame
+    void Update ()
+    {
+        Timer += Time.deltaTime;
+        HealthText.text = "HP: " + HealthSys.currentHP.ToString("#");
+        ScurvyText.text = "Scurvy " + HealthSys.currentScurvy.ToString("#") + "%";
+        int minutes = Mathf.FloorToInt(Timer / 60F);
+        int seconds = Mathf.FloorToInt(Timer - minutes * 60);
+        NiceTime = string.Format("{0:0}:{1:00}", minutes, seconds);
+        TimerText.text = NiceTime;
 
         ScurvyMeter();
-        HPMeter();
+        HpMeter();
 
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
         {
             if (Time.timeScale == 1)
             {
-                showPaused();
+                ShowPaused();
             }
             else if (Time.timeScale == 0)
             {
-                hidePaused();
+                HidePaused();
             }
         }
     }
 
     private void ScurvyMeter()
     {
-        scurvyPercent = healthSys.currentScurvy / 100;
-        scurvyMeter.rectTransform.localScale = new Vector3(0.2f, scurvyPercent, 1f);
-        if (scurvyPercent <= 0)
+        ScurvyPercent = HealthSys.currentScurvy / 100;
+        ScurvyMeterImage.rectTransform.localScale = new Vector3(0.2f, ScurvyPercent, 1f);
+        if (ScurvyPercent <= 0)
         {
-            scurvyPercent = 0;
+            ScurvyPercent = 0;
         }
     }
 
-    private void HPMeter()
+    private void HpMeter()
     {
-        healthPercent = healthSys.currentHP / 100;
-        healthMeter.rectTransform.localScale = new Vector3(healthPercent, 0.2f, 1f);
-        if (healthPercent <= 0)
+        HealthPercent = HealthSys.currentHP / 100;
+        HealthMeterImage.rectTransform.localScale = new Vector3(HealthPercent, 0.2f, 1f);
+        if (HealthPercent <= 0)
         {
-            healthPercent = 0;
+            HealthPercent = 0;
         }
     }
 
-    public void showPaused()
+    public void ShowPaused()
     {
         Time.timeScale = 0;
-        foreach (GameObject g in pauseObjects)
+        foreach (GameObject g in PauseObjects)
         {
             g.SetActive(true);
         }
     }
 
-    public void hidePaused()
+    public void HidePaused()
     {
         Time.timeScale = 1;
-        foreach (GameObject g in pauseObjects)
+        foreach (GameObject g in PauseObjects)
         {
             g.SetActive(false);
         }
     }
 
-    public void deathMenu()
+    public void DeathMenu()
     {
         Time.timeScale = 0;
-        deathTimeText.text = "You survived for " + niceTime + " minutes";
-        foreach (GameObject g in deathObjects)
+        DeathTimeText.text = "You survived for " + NiceTime + " minutes";
+        foreach (GameObject g in DeathObjects)
         {
             g.SetActive(true);
         }
     }
 
-    public void hideDeath()
+    public void HideDeath()
     {
         Time.timeScale = 1;
-        foreach (GameObject g in deathObjects)
+        foreach (GameObject g in DeathObjects)
         {
             g.SetActive(false);
         }
     }
 
-    public void ReloadLevel(string level)
+    public void ReloadLevel(string pLevel)
     {
         Scene scene = SceneManager.GetActiveScene();// SceneManager.LoadScene(scene.name);
         SceneManager.LoadScene(scene.name);
