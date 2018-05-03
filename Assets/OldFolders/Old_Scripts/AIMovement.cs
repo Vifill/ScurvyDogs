@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class AIMovement : MonoBehaviour
 {
     private GameObject Player;
+    
+
     private AIState CurrentState;
     private Vector3 NextDestination;
 
@@ -19,6 +22,7 @@ public class AIMovement : MonoBehaviour
     public float SpeedWhileFiring;
     public float MinAngleToShoot = 10;
     public float RotationSpeed = 2;
+    public float TargetingCooldown = 2.5f;
 
     private enum AIState
     {
@@ -29,16 +33,16 @@ public class AIMovement : MonoBehaviour
 	// Use this for initialization
 	private void Start ()
 	{
-	    Player = GameObject.FindGameObjectWithTag("Player");
-	    ShootingSystem = GetComponent<ShootingSystem>();
+	    StartCoroutine(FindNearestTargetCoroutine());
+        ShootingSystem = GetComponent<ShootingSystem>();
 	    CreateNextDestinationPoint();
 	    CurrentState = AIState.Patrol;
 	}
 
-	// Update is called once per frame
+    // Update is called once per frame
 	private void Update ()
 	{
-	    Debug.Log("Distance: " + Vector3.Distance(Player.transform.position, transform.position));
+	    //Debug.Log("Distance: " + Vector3.Distance(Player.transform.position, transform.position));
 	    UpdateState();
 	}
 
@@ -49,6 +53,21 @@ public class AIMovement : MonoBehaviour
             case AIState.Patrol: UpdatePatrolState(); break;
             case AIState.Engaged: UpdateEngagedState(); break;
         }
+    }
+
+    private IEnumerator FindNearestTargetCoroutine()
+    {
+        while (true)
+        {
+            Player = FindNearestTarget();
+            yield return new WaitForSeconds(TargetingCooldown);
+        }
+    }
+
+    private GameObject FindNearestTarget()
+    {
+        var players = GameObject.FindGameObjectsWithTag("Player");
+        return players.OrderBy(a => Vector3.Distance(a.transform.position, transform.position)).First();
     }
 
     private void UpdateEngagedState()
@@ -83,7 +102,7 @@ public class AIMovement : MonoBehaviour
     
     private void FireCannons()
     {
-        //ShootingSystem.CmdShoot(PlayerSide());
+        ShootingSystem.CmdShoot(PlayerSide());
     }
 
     private ShootingSystem.ShipSide PlayerSide()
