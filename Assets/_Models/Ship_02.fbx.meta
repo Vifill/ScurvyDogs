@@ -1,41 +1,22 @@
 fileFormatVersion: 2
-guid: 29051ec424aa9cd4db62c2077b0a883e
-timeCreated: 1525345172
+guid: ffdb3ebcf3f664748968dd468f515082
+timeCreated: 1525350637
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: Ship_01_Wood
-    2100002: Ship_01_Sails
+    2100000: Ship_01_Sails
+    2100002: Ship_01_Skull
     2100004: Ship_01_Metal
     2100006: Ship_01_Black
+    2100008: Ship_01_Wood
     2300000: //RootNode
     3300000: //RootNode
-    4300000: Ship_01
+    4300000: Ship_02
     9500000: //RootNode
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Ship_01_Black
-    second: {fileID: 2100000, guid: 79f5087ea3c49c24bbc59201e25af132, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Ship_01_Metal
-    second: {fileID: 2100000, guid: 1cf23f92f7bc3a743a23b7844c7b8e48, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Ship_01_Sails
-    second: {fileID: 2100000, guid: dee63f1c558aa224f9bc7d0aaf66754e, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Ship_01_Wood
-    second: {fileID: 2100000, guid: f7addfa2c645dc646a98508d77c33f33, type: 2}
+  externalObjects: {}
   materials:
     importMaterials: 0
     materialName: 0
