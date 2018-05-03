@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class ShootingSystem : MonoBehaviour {
-
+public class ShootingSystem : NetworkBehaviour
+{
     private List<GameObject> LeftCannonsBulletSpawn = new List<GameObject>();
     private List<GameObject> RightCannonsBulletSpawn = new List<GameObject>();
 
@@ -16,8 +17,8 @@ public class ShootingSystem : MonoBehaviour {
     
     public float BulletStartVelocity = 1000;
 
-    private float LeftCooldown = 0;
-    private float RightCooldown = 0;
+    private float LeftCooldown;
+    private float RightCooldown;
     private bool StartLeftCooldown;
     private bool StartRightCooldown;
     public int CooldownTime = 3;
@@ -48,7 +49,8 @@ public class ShootingSystem : MonoBehaviour {
         }
     }
 
-    public void Shoot(ShipSide pSide)
+    [Command]
+    public void CmdShoot(ShipSide pSide)
     {
         if (!CanShoot(pSide))
         {
@@ -60,13 +62,25 @@ public class ShootingSystem : MonoBehaviour {
         foreach (GameObject spawnPoint in cannonSpawnPoints)
         {
             var cannonBall = Instantiate(CannonBallPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
-            var rigidbody = cannonBall.GetComponent<Rigidbody>();
+            NetworkServer.Spawn(cannonBall);
+            //StartCoroutine(ApplyForce(cannonBall));
+            //var rigidbody = cannonBall.GetComponent<Rigidbody>();
             var particle = Instantiate(BlastParticles, spawnPoint.transform.position, spawnPoint.transform.rotation, spawnPoint.transform);
-            rigidbody.AddRelativeForce(new Vector3(0, 0, BulletStartVelocity), ForceMode.VelocityChange);
+            //rigidbody.AddRelativeForce(new Vector3(0, 0, BulletStartVelocity), ForceMode.VelocityChange);
+            //rigidbody.velocity = (new Vector3(0, 0, BulletStartVelocity));
+
 
             Destroy(particle, 2);
         }
     }
+
+    private IEnumerator ApplyForce(GameObject pCannonBall)
+    {
+        yield return new WaitForEndOfFrame();
+        pCannonBall.GetComponent<Rigidbody>()
+            .AddRelativeForce(new Vector3(0, 0, BulletStartVelocity), ForceMode.VelocityChange);
+    }
+
 
     private bool CanShoot(ShipSide pSide)
     {

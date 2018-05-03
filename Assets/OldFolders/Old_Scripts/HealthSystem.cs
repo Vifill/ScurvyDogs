@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class HealthSystem : MonoBehaviour
+public class HealthSystem : NetworkBehaviour
 {
-
     public float maxHP;
+    [SyncVar]
     public float currentHP;
     public float maxScurvy;
     public float currentScurvy;
@@ -22,7 +23,7 @@ public class HealthSystem : MonoBehaviour
     void Start()
     {
         currentScurvy = 0;
-        uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
+        uiManager = FindObjectOfType<UIManager>();
     }
 
     // Update is called once per frame
@@ -72,13 +73,18 @@ public class HealthSystem : MonoBehaviour
         }
         else if (currentScurvy >= 100)
         {
-            uiManager.deathText.text = "Until you died from scurvy";
-            uiManager.deathMenu();
+            uiManager.DeathText.text = "Until you died from scurvy";
+            uiManager.DeathMenu();
         }
     }
 
     public void GotHit(int pDamage)
     {
+        if (!isServer)
+        {
+            return;
+        }
+
         currentHP -= pDamage;
         if (!AudioTimerStart)
         {
@@ -92,7 +98,7 @@ public class HealthSystem : MonoBehaviour
 
     public void Death()
     {
-        uiManager.deathText.text = "Until you died";
-        uiManager.deathMenu();
+        uiManager.DeathText.text = "Until you died";
+        uiManager.DeathMenu();
     }
 }

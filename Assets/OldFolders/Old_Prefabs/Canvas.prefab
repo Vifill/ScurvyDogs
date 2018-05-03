@@ -116,7 +116,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1307686520039268
 GameObject:
   m_ObjectHideFlags: 1
@@ -198,6 +198,8 @@ GameObject:
   - component: {fileID: 223215542187731580}
   - component: {fileID: 114243072014661170}
   - component: {fileID: 114121588343857414}
+  - component: {fileID: 114784696698340356}
+  - component: {fileID: 114392305812842008}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -363,7 +365,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &114051266386602476
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -878,6 +880,24 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114392305812842008
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1533021698311902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6a1219c8b7aa5e46a698ac73b4000f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScurvyMeterImage: {fileID: 114186808307009512}
+  HealthMeterImage: {fileID: 114115984264055754}
+  ScurvyText: {fileID: 114376589458590640}
+  HealthText: {fileID: 114655672710743284}
+  TimerText: {fileID: 114457426073217590}
+  DeathTimeText: {fileID: 114139019462235210}
+  DeathText: {fileID: 114304677187802128}
 --- !u!114 &114453676296451502
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1103,6 +1123,38 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
+--- !u!114 &114784696698340356
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1533021698311902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 132
+    i1: 28
+    i2: 244
+    i3: 238
+    i4: 163
+    i5: 232
+    i6: 215
+    i7: 164
+    i8: 152
+    i9: 10
+    i10: 15
+    i11: 11
+    i12: 86
+    i13: 59
+    i14: 130
+    i15: 150
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!114 &114790586096682652
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1395,7 +1447,7 @@ Canvas:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1289054895318328}
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
@@ -1404,6 +1456,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -1414,7 +1467,7 @@ Canvas:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1533021698311902}
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
@@ -1423,6 +1476,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -1433,7 +1487,7 @@ Canvas:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1879060077572644}
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
@@ -1442,6 +1496,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
