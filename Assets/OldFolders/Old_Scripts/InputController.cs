@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class InputController : MonoBehaviour
+public class InputController : NetworkBehaviour
 {
     private ShootingSystem ShootingSystem;
 
@@ -15,14 +16,19 @@ public class InputController : MonoBehaviour
 	// Update is called once per frame
 	private void Update () 
 	{
+	    if (!isLocalPlayer)
+	    {
+            return;
+	    }
+
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            ShootingSystem.Shoot(ShootingSystem.ShipSide.Left);
+            ShootingSystem.CmdShoot(ShootingSystem.ShipSide.Left);
         }
 
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
-            ShootingSystem.Shoot(ShootingSystem.ShipSide.Right);
+            ShootingSystem.CmdShoot(ShootingSystem.ShipSide.Right);
         }
     }
 }

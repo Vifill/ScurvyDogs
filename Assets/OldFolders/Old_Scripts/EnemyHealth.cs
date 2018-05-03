@@ -17,8 +17,9 @@ public class EnemyHealth : MonoBehaviour {
     private EnemySpawner eSpawn;
 
     // Use this for initialization
-    void Start () {
-        eSpawn = GameObject.Find("Ship").GetComponent<EnemySpawner>();
+    void Start ()
+    {
+        eSpawn = FindObjectOfType<EnemySpawner>();
 	}
 	
 	// Update is called once per frame

@@ -34,7 +34,7 @@ public class AIMovement : MonoBehaviour
 	    CreateNextDestinationPoint();
 	    CurrentState = AIState.Patrol;
 	}
-	
+
 	// Update is called once per frame
 	private void Update ()
 	{
@@ -83,7 +83,7 @@ public class AIMovement : MonoBehaviour
     
     private void FireCannons()
     {
-        ShootingSystem.Shoot(PlayerSide());
+        //ShootingSystem.CmdShoot(PlayerSide());
     }
 
     private ShootingSystem.ShipSide PlayerSide()

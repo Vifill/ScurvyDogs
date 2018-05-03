@@ -7,7 +7,7 @@ public class CannonBallController : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        //gameObject.GetComponent<Rigidbody>().AddRelativeForce(transform.forward * 30000);
+        gameObject.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 0, 100), ForceMode.VelocityChange);
 	}
 	
 	// Update is called once per frame
