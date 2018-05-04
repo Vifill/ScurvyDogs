@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class AIMovement : MonoBehaviour
+public class AIMovement : NetworkBehaviour
 {
     private GameObject Player;
-    
 
     private AIState CurrentState;
     private Vector3 NextDestination;
@@ -59,7 +59,14 @@ public class AIMovement : MonoBehaviour
     {
         while (true)
         {
-            Player = FindNearestTarget();
+            try
+            {
+                Player = FindNearestTarget();
+            }
+            catch
+            {
+                print("Couldn't find the nearest target");
+            }
             yield return new WaitForSeconds(TargetingCooldown);
         }
     }
