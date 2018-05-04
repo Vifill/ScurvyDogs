@@ -328,6 +328,8 @@ GameObject:
   - component: {fileID: 114100894885935864}
   - component: {fileID: 82230080685171218}
   - component: {fileID: 114371549764497324}
+  - component: {fileID: 114295446233536736}
+  - component: {fileID: 114866475972300290}
   m_Layer: 9
   m_Name: AIShip
   m_TagString: Enemy
@@ -1210,6 +1212,38 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114295446233536736
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1978986624825958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 90
+    i1: 216
+    i2: 17
+    i3: 232
+    i4: 98
+    i5: 80
+    i6: 189
+    i7: 52
+    i8: 138
+    i9: 6
+    i10: 242
+    i11: 48
+    i12: 142
+    i13: 103
+    i14: 244
+    i15: 227
+  m_ServerOnly: 1
+  m_LocalPlayerAuthority: 0
 --- !u!114 &114371549764497324
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1271,7 +1305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.13103437, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1286,6 +1320,27 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 1
+--- !u!114 &114866475972300290
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1978986624825958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!222 &222055747847580460
 CanvasRenderer:
   m_ObjectHideFlags: 1
