@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
+using System.Collections;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -12,7 +12,7 @@ public class AIMovement : NetworkBehaviour
     private Vector3 NextDestination;
 
     private Quaternion TargetAngle;
-
+    private Rigidbody Rigidbody;
     private ShootingSystem ShootingSystem;
 
     public float MaxWaypointDistance;
@@ -33,6 +33,7 @@ public class AIMovement : NetworkBehaviour
 	// Use this for initialization
 	private void Start ()
 	{
+	    Rigidbody = GetComponent<Rigidbody>();
 	    StartCoroutine(FindNearestTargetCoroutine());
         ShootingSystem = GetComponent<ShootingSystem>();
 	    CreateNextDestinationPoint();
@@ -96,10 +97,17 @@ public class AIMovement : NetworkBehaviour
             {
                 FireCannons();
             }
-            transform.Translate(Vector3.forward * SpeedWhileFiring * Time.deltaTime);
+
+            Move(SpeedWhileFiring);
+            //transform.Translate(Vector3.forward * SpeedWhileFiring * Time.deltaTime);
         }
 
-        transform.rotation = Quaternion.Lerp(transform.rotation, TargetAngle, Time.deltaTime * RotationSpeed);
+        Rigidbody.MoveRotation(Quaternion.Lerp(transform.rotation, TargetAngle, Time.deltaTime * RotationSpeed));
+    }
+
+    private void Move(float pSpeed)
+    {
+        Rigidbody.velocity = transform.forward * pSpeed;
     }
 
     private bool AngleCloseEnough()
@@ -109,7 +117,7 @@ public class AIMovement : NetworkBehaviour
     
     private void FireCannons()
     {
-        ShootingSystem.CmdShoot(PlayerSide());
+        //ShootingSystem.CmdShoot(PlayerSide());
     }
 
     private ShootingSystem.ShipSide PlayerSide()
@@ -169,16 +177,15 @@ public class AIMovement : NetworkBehaviour
     {
         var pos = dest - transform.position;
         var newRot = Quaternion.LookRotation(pos);
-        transform.rotation = Quaternion.Lerp(transform.rotation, newRot, Time.deltaTime);
-
-        transform.Translate(Vector3.forward * Speed * Time.deltaTime);
+        Rigidbody.MoveRotation(Quaternion.Lerp(transform.rotation, newRot, Time.deltaTime));
+        Move(Speed);
     }
 
     private void CreateNextDestinationPoint()
     {
-        var randDir = Random.Range(0, 361);
+        var randDir = UnityEngine.Random.Range(0, 361);
         Vector3 directionMod = Quaternion.AngleAxis(randDir, Vector3.up) * Vector3.forward;
-        var distance = Random.Range(0f, 1f) * MaxWaypointDistance;
+        var distance = UnityEngine.Random.Range(0f, 1f) * MaxWaypointDistance;
         
         NextDestination = transform.position + (directionMod * distance);
     }

@@ -97,8 +97,8 @@ GameObject:
   - component: {fileID: 114489854311654022}
   - component: {fileID: 82534113672847682}
   - component: {fileID: 114498041918658058}
-  - component: {fileID: 114114987472990116}
   - component: {fileID: 114693390697645354}
+  - component: {fileID: 114602966074362868}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Player
@@ -794,7 +794,7 @@ Rigidbody:
   m_Mass: 0.0000001
   m_Drag: 0
   m_AngularDrag: 0
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 116
@@ -1103,27 +1103,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShipRigidbody: {fileID: 54892235106491186}
   angularVelocity: 0
---- !u!114 &114114987472990116
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1368400319332362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_TransformSyncMode: 1
-  m_SendInterval: 0.1
-  m_SyncRotationAxis: 7
-  m_RotationSyncCompression: 0
-  m_SyncSpin: 1
-  m_MovementTheshold: 0.001
-  m_VelocityThreshold: 0.0001
-  m_SnapThreshold: 10
-  m_InterpolateRotation: 1
-  m_InterpolateMovement: 4
 --- !u!114 &114119579228238270
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1198,6 +1177,27 @@ MonoBehaviour:
     i15: 246
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
+--- !u!114 &114602966074362868
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1368400319332362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 3
+  m_SendInterval: 0.04761905
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 1
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 20
+  m_InterpolateMovement: 1
 --- !u!114 &114624509949201034
 MonoBehaviour:
   m_ObjectHideFlags: 1
