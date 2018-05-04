@@ -276,6 +276,7 @@ GameObject:
   - component: {fileID: 114100894885935864}
   - component: {fileID: 82230080685171218}
   - component: {fileID: 114450506130649770}
+  - component: {fileID: 114304256174288232}
   m_Layer: 9
   m_Name: AIShip
   m_TagString: Enemy
@@ -1090,6 +1091,8 @@ MonoBehaviour:
     type: 2}
   DestroyParticle: {fileID: 1649079387380040, guid: 4f46858fa53ffa048a0738fb3c21a4b8,
     type: 2}
+  HealthBar: {fileID: 0}
+  HealthBarCanvas: {fileID: 0}
 --- !u!114 &114112088196595454
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1129,6 +1132,27 @@ MonoBehaviour:
   MinAngleToShoot: 10
   RotationSpeed: 2
   TargetingCooldown: 2.5
+--- !u!114 &114304256174288232
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1978986624825958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 10
 --- !u!114 &114450506130649770
 MonoBehaviour:
   m_ObjectHideFlags: 1
