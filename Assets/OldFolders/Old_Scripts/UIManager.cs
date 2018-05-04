@@ -26,11 +26,12 @@ public class UIManager : NetworkBehaviour
     private string NiceTime;
 
     private HealthSystem HealthSys;
+    private NetworkManager NetworkManager;
 
 	// Use this for initialization
 	void Start ()
 	{
-        
+        NetworkManager = FindObjectOfType<NetworkManager>();
     }
 
     internal void Initialize(GameObject pGameObject)
@@ -136,5 +137,12 @@ public class UIManager : NetworkBehaviour
     public void ExitGame()
     {
         Application.Quit();
+    }
+
+    public void LeaveGame()
+    {
+        
+        NetworkManager.StopClient();
+        NetworkManager.StopHost();
     }
 }
