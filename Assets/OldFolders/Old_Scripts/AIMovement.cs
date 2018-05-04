@@ -146,7 +146,7 @@ public class AIMovement : NetworkBehaviour
 
     private void UpdatePatrolState()
     {
-        if (IsPlayerClose())
+        if (Player != null && IsPlayerClose())
         {
             CurrentState = AIState.Engaged;
             return;
