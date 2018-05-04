@@ -93,7 +93,6 @@ GameObject:
   - component: {fileID: 54892235106491186}
   - component: {fileID: 114624509949201034}
   - component: {fileID: 64887893808160644}
-  - component: {fileID: 114827441460931766}
   - component: {fileID: 114722434793203658}
   - component: {fileID: 114489854311654022}
   - component: {fileID: 82534113672847682}
@@ -1252,22 +1251,6 @@ MonoBehaviour:
     type: 2}
   DeathParticle: {fileID: 1206403908170468, guid: c4e44084e8aba51429ac1d7e5687cde5,
     type: 2}
---- !u!114 &114827441460931766
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1368400319332362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f40792f2290dfde4f8c828433ccc5eb3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpawnDist: 200
-  spawnRate: 20
-  maxEnemy: 10
-  enemyCount: 0
-  EnemyPrefab: {fileID: 0}
 --- !u!124 &124417048569478814
 Behaviour:
   m_ObjectHideFlags: 1

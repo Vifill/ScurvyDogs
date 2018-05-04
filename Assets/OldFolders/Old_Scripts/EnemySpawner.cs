@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class EnemySpawner : MonoBehaviour {
 
@@ -32,7 +33,8 @@ public class EnemySpawner : MonoBehaviour {
 
     private void SpawnEnemy()
     {
-        Instantiate(EnemyPrefab, FindSpawnPoint(), Quaternion.identity);
+        var enemy = Instantiate(EnemyPrefab, FindSpawnPoint(), Quaternion.identity);
+        NetworkServer.Spawn(enemy);
     }
 
    private IEnumerator SpawnDelay()
