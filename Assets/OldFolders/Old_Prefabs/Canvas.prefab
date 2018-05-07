@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 114310849253522000}
   - component: {fileID: 114154108499667340}
   m_Layer: 5
-  m_Name: exitButton
+  m_Name: DisconnectButton
   m_TagString: PauseMenu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -508,8 +508,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: hidePaused
+      - m_Target: {fileID: 114392305812842008}
+        m_MethodName: ButtonResumeGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -898,6 +898,8 @@ MonoBehaviour:
   TimerText: {fileID: 114457426073217590}
   DeathTimeText: {fileID: 114139019462235210}
   DeathText: {fileID: 114304677187802128}
+  PauseMenu: {fileID: 1879060077572644}
+  DeathMenu: {fileID: 1289054895318328}
 --- !u!114 &114453676296451502
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1255,7 +1257,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Exit
+  m_Text: Disconnect
 --- !u!114 &114834177016831066
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1660,8 +1662,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 3, y: 1}
-  m_SizeDelta: {x: 53, y: 34}
+  m_AnchoredPosition: {x: 0.7, y: 1}
+  m_SizeDelta: {x: 85.45, y: 34}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224381114416907654
 RectTransform:

@@ -8,9 +8,6 @@ using System;
 
 public class UIManager : NetworkBehaviour
 {
-    GameObject[] DeathObjects;
-    GameObject[] PauseObjects;
-
     public Image ScurvyMeterImage;
     public Image HealthMeterImage;
 
@@ -19,6 +16,8 @@ public class UIManager : NetworkBehaviour
     public Text TimerText;
     public Text DeathTimeText;
     public Text DeathText;
+    public GameObject PauseMenu;
+    public GameObject DeathMenu;
 
     private float HealthPercent;
     private float ScurvyPercent;
@@ -37,10 +36,7 @@ public class UIManager : NetworkBehaviour
     internal void Initialize(GameObject pGameObject)
     {
         HealthSys = pGameObject.GetComponent<HealthSystem>();
-        PauseObjects = GameObject.FindGameObjectsWithTag("PauseMenu");
-        DeathObjects = GameObject.FindGameObjectsWithTag("DeathMenu");
         HideDeath();
-        HidePaused();
     }
     
 
@@ -62,13 +58,24 @@ public class UIManager : NetworkBehaviour
         {
             if (Time.timeScale == 1)
             {
-                ShowPaused();
+                ShowPauseMenu(true, 0);
             }
             else if (Time.timeScale == 0)
             {
-                HidePaused();
+                ShowPauseMenu(false, 1);
             }
         }
+    }
+
+    private void ShowPauseMenu(bool pValue, float pTimeScale)
+    {
+        PauseMenu.SetActive(pValue);
+        Time.timeScale = pTimeScale;
+    }
+
+    public void ButtonResumeGame()
+    {
+        ShowPauseMenu(false, 1);
     }
 
     private void ScurvyMeter()
@@ -91,41 +98,17 @@ public class UIManager : NetworkBehaviour
         }
     }
 
-    public void ShowPaused()
-    {
-        Time.timeScale = 0;
-        foreach (GameObject g in PauseObjects)
-        {
-            g.SetActive(true);
-        }
-    }
-
-    public void HidePaused()
-    {
-        Time.timeScale = 1;
-        foreach (GameObject g in PauseObjects)
-        {
-            g.SetActive(false);
-        }
-    }
-
-    public void DeathMenu()
+    public void ShowDeathMenu()
     {
         Time.timeScale = 0;
         DeathTimeText.text = "You survived for " + NiceTime + " minutes";
-        foreach (GameObject g in DeathObjects)
-        {
-            g.SetActive(true);
-        }
+        DeathMenu.SetActive(true);
     }
 
     public void HideDeath()
     {
         Time.timeScale = 1;
-        foreach (GameObject g in DeathObjects)
-        {
-            g.SetActive(false);
-        }
+        DeathMenu.SetActive(false);
     }
 
     public void ReloadLevel(string pLevel)
@@ -141,8 +124,13 @@ public class UIManager : NetworkBehaviour
 
     public void LeaveGame()
     {
-        
-        NetworkManager.StopClient();
-        NetworkManager.StopHost();
+        if (!isClient)
+        {
+            NetworkManager.StopHost();
+        }
+        else
+        {
+            NetworkManager.StopClient();
+        }
     }
 }
