@@ -11,3 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/TestScene_Scurvy_Teddi.unity
     guid: d5a5d344abe95b343bd5cc306196cc91
+  - enabled: 1
+    path: Assets/_Scenes/TestScene_Versus.unity
+    guid: 7fe4ebb84319e294dae8f01bde49dc1f

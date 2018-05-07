@@ -84,4 +84,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 705643dd5ee1df144894a181e4bf94b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NetworkManager: {fileID: 0}
+  GameModeDropDown: {fileID: 0}
+  Coop: {fileID: 102900000, guid: d5a5d344abe95b343bd5cc306196cc91, type: 3}
+  Versus: {fileID: 102900000, guid: 7fe4ebb84319e294dae8f01bde49dc1f, type: 3}
