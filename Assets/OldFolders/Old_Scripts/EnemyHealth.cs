@@ -6,9 +6,10 @@ using UnityEngine.UI;
 
 public class EnemyHealth : NetworkBehaviour {
 
-    public float maxHP;
+    public const float maxHP = 100;
+
     [SyncVar(hook = "OnHealthChange")]
-    public float currentHP;
+    public float CurrentHP = maxHP;
     public GameObject Orange;
     public AudioClip DamageSFX;
     public GameObject HitParticle;
@@ -25,11 +26,13 @@ public class EnemyHealth : NetworkBehaviour {
     void Start ()
     {
         eSpawn = FindObjectOfType<EnemySpawner>();
-	}
+        CurrentHP = maxHP;
+        OnHealthChange(CurrentHP);
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        CheckIfDead();
+        //CheckIfDead();
         if (AudioTimerStart)
         {
             AudioTimer += Time.deltaTime;
@@ -43,17 +46,14 @@ public class EnemyHealth : NetworkBehaviour {
 
     private void CheckIfDead()
     {
-        if (!isDead)
+        if (!isDead && CurrentHP <= 0)
         {
-            if (currentHP <= 0)
-            {
-                ShipDied();
-                isDead = true;
-            }
+            RpcShipDied();
         }
     }
 
-    private void ShipDied()
+    [ClientRpc]
+    private void RpcShipDied()
     {
         Vector3 spawnPos = new Vector3(transform.position.x, 3f, transform.position.z);
         Instantiate(Orange, spawnPos, Quaternion.identity);
@@ -63,13 +63,24 @@ public class EnemyHealth : NetworkBehaviour {
         transform.GetChild(0).gameObject.SetActive(false);
         HealthBarCanvas.SetActive(false);
         GetComponent<ShootingSystem>().enabled = false;
-        eSpawn.enemyCount -= 1;
+        //eSpawn.enemyCount -= 1;
+        isDead = true;
+        //DestroyTheShip();
         Invoke("DestroyTheShip", 2f);
     }
 
     public void GotHit(int pDamage)
     {
-        currentHP -= pDamage;
+        if (!isServer) return;
+        RpcHitParticles();
+        CurrentHP -= pDamage;
+
+        CheckIfDead();
+    }
+
+    [ClientRpc]
+    private void RpcHitParticles()
+    {
         if (!AudioTimerStart)
         {
             var particle = Instantiate(HitParticle, transform.position, transform.rotation, transform);
@@ -82,7 +93,7 @@ public class EnemyHealth : NetworkBehaviour {
 
     private void OnHealthChange(float pCurrentHealth)
     {
-        HealthBar.fillAmount = currentHP / 100;
+        HealthBar.fillAmount = pCurrentHealth / 100;
     }
 
     private void DestroyTheShip()

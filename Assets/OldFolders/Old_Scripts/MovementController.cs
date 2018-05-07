@@ -12,6 +12,7 @@ public class MovementController : NetworkBehaviour
     public float CurrentSpeed;
     public Vector3 EulerAngleVelocity;
 
+    [SyncVar(hook = "ChangeSails")]
     public SpeedMode CurrentSpeedMode;
 
     public float MaxAngularVelocity;
@@ -42,8 +43,8 @@ public class MovementController : NetworkBehaviour
 	private void Start()
 	{
 	    Rigidbody = GetComponent<Rigidbody>();
-	    ChangeSails();
-	}
+        ChangeSails(CurrentSpeedMode);
+    }
 	
 	// Update is called once per frame
 	private void Update()
@@ -62,16 +63,14 @@ public class MovementController : NetworkBehaviour
         {
             if (CurrentSpeedMode < SpeedMode.High)
             {
-                CurrentSpeedMode++;
-                ChangeSails();
+                CmdChangeSails(1);
             }
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
             if (CurrentSpeedMode > SpeedMode.Low)
             {
-                CurrentSpeedMode--;
-                ChangeSails();
+                CmdChangeSails(-1);
             }
         }
 
@@ -89,10 +88,17 @@ public class MovementController : NetworkBehaviour
         }
     }
 
-    private void ChangeSails()
+    [Command]
+    private void CmdChangeSails(int pValue)
     {
+        CurrentSpeedMode += pValue;
+    }
+
+    private void ChangeSails(SpeedMode pSpeedMode)
+    {
+        CurrentSpeedMode = pSpeedMode;
         Destroy(CurrentSails);
-        CurrentSails = Instantiate(Sails[(int)CurrentSpeedMode], HullModel, false);
+        CurrentSails = Instantiate(Sails[(int)pSpeedMode], HullModel, false);
     }
 
     private void RotateHull()
@@ -113,7 +119,8 @@ public class MovementController : NetworkBehaviour
     private void ModulateSpeed()
     {
         CurrentSpeed = Mathf.Lerp(CurrentSpeed, GetTargetSpeed(), TransitionSpeed * Time.deltaTime);
-        Rigidbody.MovePosition(transform.position + transform.forward * CurrentSpeed * Time.deltaTime);
+        Rigidbody.velocity = transform.forward * CurrentSpeed;
+        //Rigidbody.MovePosition(transform.position + transform.forward * CurrentSpeed * Time.deltaTime);
     }
 
     private float GetTargetSpeed()

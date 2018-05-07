@@ -57,7 +57,7 @@ public class EndlessSea : MonoBehaviour {
     public void DestroyOldSea()
     {
         Debug.Log(CurrentSea.name);
-        mySea.Where(a=> a != CurrentSea).ToList().ForEach(sea => Destroy(sea.gameObject));
+        mySea.Where(a=> a != null && a != CurrentSea).ToList().ForEach(sea => Destroy(sea.gameObject));
         Destroy(transform.parent.gameObject);
     }
 

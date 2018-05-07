@@ -63,12 +63,7 @@ public class ShootingSystem : NetworkBehaviour
         {
             var cannonBall = Instantiate(CannonBallPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
             NetworkServer.Spawn(cannonBall);
-            //StartCoroutine(ApplyForce(cannonBall));
-            //var rigidbody = cannonBall.GetComponent<Rigidbody>();
             var particle = Instantiate(BlastParticles, spawnPoint.transform.position, spawnPoint.transform.rotation, spawnPoint.transform);
-            //rigidbody.AddRelativeForce(new Vector3(0, 0, BulletStartVelocity), ForceMode.VelocityChange);
-            //rigidbody.velocity = (new Vector3(0, 0, BulletStartVelocity));
-
 
             Destroy(particle, 2);
         }
@@ -104,20 +99,6 @@ public class ShootingSystem : NetworkBehaviour
         }
         return false;
     }
-
-    //private void Shoot(List<GameObject> pCannonSpawnPoints)
-    //{
-    //    foreach (GameObject spawnPoint in pCannonSpawnPoints)
-    //    {
-    //        var cannonBall = Instantiate(CannonBallPrefab, spawnPoint.transform.position, spawnPoint.transform.rotation);
-    //        var rigidbody = cannonBall.GetComponent<Rigidbody>();
-    //        var particle = Instantiate(BlastParticles, spawnPoint.transform.position, spawnPoint.transform.rotation, spawnPoint.transform);
-    //        //rigidbody.velocity = GetComponent<Rigidbody>().velocity;
-    //        rigidbody.AddRelativeForce(new Vector3(0, 0, BulletStartVelocity), ForceMode.VelocityChange);
-
-    //        Destroy(particle, 2);
-    //    }
-    //}
 
     public enum ShipSide
     {
