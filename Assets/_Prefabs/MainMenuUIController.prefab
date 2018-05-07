@@ -85,3 +85,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameModeDropDown: {fileID: 0}
+  Coop: {fileID: 102900000, guid: d5a5d344abe95b343bd5cc306196cc91, type: 3}
+  Versus: {fileID: 102900000, guid: 7fe4ebb84319e294dae8f01bde49dc1f, type: 3}

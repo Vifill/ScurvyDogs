@@ -6,38 +6,40 @@ using UnityEngine.Networking.Match;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class MenuUIManager : NetworkBehaviour
+public class MenuUIManager : MonoBehaviour
 {
     public Dropdown GameModeDropDown;
+    public Object Coop;
+    public Object Versus;
     private NetworkManager NetworkManager;
+
+    private void Start()
+    {
+        NetworkManager = FindObjectOfType<NetworkManager>();
+        NetworkManager.onlineScene = Coop.name;
+    }
 
     public void SelectGameMode()
     {
-        NetworkManager = FindObjectOfType<NetworkManager>();
-
         if (GameModeDropDown.value == 0)
         {
             //coop
-            var scene = SceneManager.GetSceneByBuildIndex(1).name;
-            NetworkManager.onlineScene = scene;
+            NetworkManager.onlineScene = Coop.name;
         }
         else if (GameModeDropDown.value == 1)
         {
             //Versus
-            var scene = SceneManager.GetSceneByBuildIndex(2).name;
-            NetworkManager.onlineScene = scene;
+            NetworkManager.onlineScene = Versus.name;
         }
     }
 
     public void ButtonStartHost()
     {
-        NetworkManager = FindObjectOfType<NetworkManager>();
         NetworkManager.StartHost();
     }
 
     public void ButtonStartClient()
     {
-        NetworkManager = FindObjectOfType<NetworkManager>();
         NetworkManager.StartClient();
     }
 

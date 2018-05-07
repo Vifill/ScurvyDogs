@@ -1489,7 +1489,8 @@ Prefab:
       propertyPath: GameModeDropDown
       value: 
       objectReference: {fileID: 1383433026}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114039959542674002, guid: 430208d82b7888f49805b806cdff769d, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 430208d82b7888f49805b806cdff769d, type: 2}
   m_IsPrefabParent: 0
 --- !u!114 &865292568 stripped
@@ -2186,6 +2187,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114754648839306508, guid: 70fa39f8603305041a63a828849467b1,
+        type: 2}
+      propertyPath: m_SpawnPrefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4925001463485714, guid: 70fa39f8603305041a63a828849467b1, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2222,6 +2228,11 @@ Prefab:
         type: 2}
       propertyPath: showGUI
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114754648839306508, guid: 70fa39f8603305041a63a828849467b1,
+        type: 2}
+      propertyPath: m_SpawnPrefabs.Array.data[3]
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 70fa39f8603305041a63a828849467b1, type: 2}
