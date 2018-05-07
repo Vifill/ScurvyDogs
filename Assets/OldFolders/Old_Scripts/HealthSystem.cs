@@ -74,7 +74,7 @@ public class HealthSystem : NetworkBehaviour
         else if (currentScurvy >= 100)
         {
             uiManager.DeathText.text = "Until you died from scurvy";
-            uiManager.DeathMenu();
+            uiManager.ShowDeathMenu();
         }
     }
 
@@ -99,6 +99,6 @@ public class HealthSystem : NetworkBehaviour
     public void Death()
     {
         uiManager.DeathText.text = "Until you died";
-        uiManager.DeathMenu();
+        uiManager.ShowDeathMenu();
     }
 }

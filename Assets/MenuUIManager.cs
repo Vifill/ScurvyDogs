@@ -7,15 +7,22 @@ using UnityEngine.Networking.Match;
 public class MenuUIManager : NetworkBehaviour
 {
 
-    public NetworkManager NetworkManager;
+    private NetworkManager NetworkManager;
 
     public void ButtonStartHost()
     {
+        NetworkManager = FindObjectOfType<NetworkManager>();
         NetworkManager.StartHost();
     }
 
     public void ButtonStartClient()
     {
+        NetworkManager = FindObjectOfType<NetworkManager>();
         NetworkManager.StartClient();
+    }
+
+    public void ExitButton()
+    {
+        Application.Quit();
     }
 }
