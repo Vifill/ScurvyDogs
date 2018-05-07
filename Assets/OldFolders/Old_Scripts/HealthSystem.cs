@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -58,23 +59,69 @@ public class HealthSystem : NetworkBehaviour
             {
                 HasDied = true;
                 //Disable the visuals
-                MovementController.HullModel.gameObject.SetActive(false);
-                transform.Find("TrailHolder").gameObject.SetActive(false);
-                Instantiate(DeathParticle, transform.position, transform.rotation, null);
-                MovementController.SetMovement(false);
+
+                RpcDisableShip();
+                
                 //Respawn the player if he has spawns left
                 if (SpawnsLeft > 0)
                 {
-                    Invoke("RpcRespawn", 2);
+                    Invoke("RunRespawn", 2);
                     SpawnsLeft--;
                 }
                 else
                 {
+                    Invoke("RunChangeCamera", 2);
                     //TODO: Call endscreen
                 }
             }
         }
     }
+
+    private void RunRespawn()
+    {
+        RpcRespawn();
+    }
+
+    private void RunChangeCamera()
+    {
+        RpcChangeCamera();
+    }
+
+    private IEnumerator RunActionWithDelay(Action pAction, int pTime)
+    {
+        yield return new WaitForSeconds(pTime);
+        pAction();
+    }
+
+    [ClientRpc]
+    private void RpcDisableShip()
+    {
+        transform.Find("TrailHolder").gameObject.SetActive(false);
+        Instantiate(DeathParticle, transform.position, transform.rotation, null);
+        MovementController.HullModel.gameObject.SetActive(false);
+
+        if (isLocalPlayer)
+        {
+            MovementController.SetMovement(false);
+        }
+    }
+
+    [ClientRpc]
+    private void RpcChangeCamera()
+    {
+        if (isLocalPlayer)
+        {
+            var otherCam = GameObject.FindGameObjectsWithTag("Player").FirstOrDefault(a => a != gameObject).transform.Find("Camera");
+            otherCam.gameObject.SetActive(true);
+            CmdKillMe();
+        }
+    }
+
+    [Command]
+    private void CmdKillMe()
+    {
+        NetworkServer.Destroy(gameObject);
+    } 
 
     [ClientRpc]
     void RpcRespawn()
