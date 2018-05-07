@@ -117,7 +117,7 @@ public class AIMovement : NetworkBehaviour
     
     private void FireCannons()
     {
-        //ShootingSystem.CmdShoot(PlayerSide());
+        ShootingSystem.CmdShoot(PlayerSide());
     }
 
     private ShootingSystem.ShipSide PlayerSide()

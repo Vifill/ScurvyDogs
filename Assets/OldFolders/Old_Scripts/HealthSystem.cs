@@ -84,8 +84,13 @@ public class HealthSystem : NetworkBehaviour
         {
             return;
         }
-
+        RpcParticleHit();
         currentHP -= pDamage;
+    }
+
+    [ClientRpc]
+    private void RpcParticleHit()
+    {
         if (!AudioTimerStart)
         {
             var particle = Instantiate(HitParticle, transform.position, transform.rotation, transform);
