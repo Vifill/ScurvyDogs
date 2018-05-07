@@ -31,6 +31,7 @@ public class MovementController : NetworkBehaviour
 
     private GameObject CurrentSails;
     private Rigidbody Rigidbody;
+    private bool IsStopMovement;
 
     public enum SpeedMode
     {
@@ -50,7 +51,7 @@ public class MovementController : NetworkBehaviour
 	private void Update()
     {
         //Don't do anything if you're not the player
-        if (!isLocalPlayer) return;
+        if (!isLocalPlayer || IsStopMovement) return;
         RegisterInput();
         ModulateSpeed();
         Rotate();
@@ -135,5 +136,20 @@ public class MovementController : NetworkBehaviour
                 return MaximumSpeed;
         }
         return 0;
+    }
+
+    public void SetMovement(bool pValue)
+    {
+        if (pValue)
+        {
+            CurrentSpeedMode = SpeedMode.Low;
+            IsStopMovement = false;
+        }
+        else
+        {
+            Rigidbody.velocity = Vector3.zero;
+            Rigidbody.rotation = Quaternion.identity;
+            IsStopMovement = true;
+        }
     }
 }

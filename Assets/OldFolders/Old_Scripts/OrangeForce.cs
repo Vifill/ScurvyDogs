@@ -39,8 +39,7 @@ public class OrangeForce : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
-            healthSys.currentScurvy -= 6f;
-            healthSys.currentHP += 5f;
+            healthSys.ChangeHp(5);
             GetComponent<AudioSource>().Play();
             GetComponent<SphereCollider>().enabled = false;
             transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;

@@ -6,14 +6,22 @@ using UnityEngine.Networking;
 public class InputController : NetworkBehaviour
 {
     private ShootingSystem ShootingSystem;
+    private UIManager UIManager;
 
     // Use this for initialization
     private void Start ()
 	{
         ShootingSystem = GetComponent<ShootingSystem>();
+	    StartCoroutine(FindUIManager());
 	}
-	
-	// Update is called once per frame
+
+    private IEnumerator FindUIManager()
+    {
+        yield return new WaitForEndOfFrame();
+        UIManager = FindObjectOfType<UIManager>();
+    }
+
+    // Update is called once per frame
 	private void Update () 
 	{
 	    if (!isLocalPlayer)
@@ -30,5 +38,29 @@ public class InputController : NetworkBehaviour
         {
             ShootingSystem.CmdShoot(ShootingSystem.ShipSide.Right);
         }
+
+	    if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
+	    {
+	        if (Time.timeScale == 1)
+	        {
+	            CmdSetPause(true, 0);
+	        }
+	        else if (Time.timeScale == 0)
+	        {
+	            CmdSetPause(false, 1);
+	        }
+	    }
+    }
+
+    [Command]
+    public void CmdSetPause(bool pValue, float pTimeScale)
+    {
+        RpcShowPauseMenu(pValue, pTimeScale);
+    }
+
+    [ClientRpc]
+    public void RpcShowPauseMenu(bool pValue, float pTimeScale)
+    {
+        UIManager.ShowPauseMenu(pValue, pTimeScale);
     }
 }

@@ -1075,15 +1075,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a1cb73baacf93e408b212713858a766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 100
-  currentHP: 100
-  maxScurvy: 100
-  currentScurvy: 0
+  MaxHp: 100
+  CurrentHp: 100
   DamageSFX: {fileID: 8300000, guid: fcf7e4bd5d227204c98bd40959c52422, type: 3}
   HitParticle: {fileID: 1805967295874582, guid: 105fde0e89f4309428589f9edfe59566,
     type: 2}
   DeathParticle: {fileID: 1206403908170468, guid: c4e44084e8aba51429ac1d7e5687cde5,
     type: 2}
+  SpawnsLeft: 0
 --- !u!124 &124417048569478814
 Behaviour:
   m_ObjectHideFlags: 1

@@ -6,7 +6,6 @@ using UnityEngine.Networking.Match;
 
 public class MenuUIManager : NetworkBehaviour
 {
-
     private NetworkManager NetworkManager;
 
     public void ButtonStartHost()
