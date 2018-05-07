@@ -9,6 +9,7 @@ TagManager:
   - PauseMenu
   - DeathMenu
   - Enemy
+  - MainCanvas
   layers:
   - Default
   - TransparentFX

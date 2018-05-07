@@ -377,29 +377,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5ad811e86250bd348a06f2308e67f4e3, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1415323524 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1856088798617088, guid: e76d1104565055148a481351f9634a6a,
-    type: 2}
-  m_PrefabInternal: {fileID: 1884291984}
---- !u!114 &1415323525
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1415323524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c351adee6a05d44ea5d6ea1ec68592a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SongList:
-  - {fileID: 8300000, guid: 07f69114d3cc3f84f9b2e23e15e048bc, type: 3}
-  - {fileID: 8300000, guid: 4ce377c03bce44e47a94d805219dfa3f, type: 3}
-  - {fileID: 8300000, guid: 8b53760dcd3fc0c479728b5b96f87c0b, type: 3}
-  - {fileID: 8300000, guid: 519d90e50acd1a94498b45a69c505164, type: 3}
-  - {fileID: 8300000, guid: b4ba632f976e4ec4ca5eb218d4c0738e, type: 3}
-  - {fileID: 8300000, guid: fbdcf944ce59b844a846356d9fb8ce4a, type: 3}
 --- !u!1 &1444601173
 GameObject:
   m_ObjectHideFlags: 0
@@ -622,21 +599,6 @@ Prefab:
     - target: {fileID: 4002828339351784, guid: e76d1104565055148a481351f9634a6a, type: 2}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 82591647985281666, guid: e76d1104565055148a481351f9634a6a,
-        type: 2}
-      propertyPath: m_Volume
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 82591647985281666, guid: e76d1104565055148a481351f9634a6a,
-        type: 2}
-      propertyPath: Priority
-      value: 160
-      objectReference: {fileID: 0}
-    - target: {fileID: 82591647985281666, guid: e76d1104565055148a481351f9634a6a,
-        type: 2}
-      propertyPath: Loop
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e76d1104565055148a481351f9634a6a, type: 2}
