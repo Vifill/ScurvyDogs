@@ -64,16 +64,16 @@ public class MovementController : NetworkBehaviour
         {
             if (CurrentSpeedMode < SpeedMode.High)
             {
-                CurrentSpeedMode++;
-                //ChangeSails();
+                CmdChangeSails(1);
             }
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
             if (CurrentSpeedMode > SpeedMode.Low)
             {
-                CurrentSpeedMode--;
-                //ChangeSails();
+                CmdChangeSails(-1);
+                //CurrentSpeedMode--;
+                //ChangeSails(CurrentSpeedMode);
             }
         }
 
@@ -91,11 +91,17 @@ public class MovementController : NetworkBehaviour
         }
     }
 
+    [Command]
+    private void CmdChangeSails(int pValue)
+    {
+        CurrentSpeedMode += pValue;
+    }
+
     private void ChangeSails(SpeedMode pSpeedMode)
     {
+        CurrentSpeedMode = pSpeedMode;
         Destroy(CurrentSails);
         CurrentSails = Instantiate(Sails[(int)pSpeedMode], HullModel, false);
-        //CurrentSails = currentSails;
     }
 
     private void RotateHull()
