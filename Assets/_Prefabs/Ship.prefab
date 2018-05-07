@@ -423,7 +423,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1368400319332362}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -48, y: -1, z: 136}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4231980914955618}
@@ -982,12 +982,12 @@ MonoBehaviour:
   displayTurn: 0
   MaxHullRotation: 25
   HullRotationAcceleration: 2
-  HullToRotate: {fileID: 0}
+  HullToRotate: {fileID: 1034311403334754}
   Sails:
   - {fileID: 1612840772230914, guid: 6786a8f8a33ec8f469df96da237a17a4, type: 2}
   - {fileID: 1069882541355216, guid: 26723724366bd8545a48b6ddc6219a02, type: 2}
   - {fileID: 1243571190430102, guid: 0c83bc72eb31f354f824f9dfaaaf6b85, type: 2}
-  HullModel: {fileID: 0}
+  HullModel: {fileID: 4593580775678326}
 --- !u!114 &114489854311654022
 MonoBehaviour:
   m_ObjectHideFlags: 1
