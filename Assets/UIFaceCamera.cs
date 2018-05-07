@@ -9,12 +9,24 @@ public class UIFaceCamera : MonoBehaviour
 
     private void Start()
     {
-        Camera = FindObjectOfType<Camera>();
+        StartCoroutine(FindCamera());
     }
 
     // Update is called once per frame
     private void Update() 
 	{
-        HealthBarCanvas.transform.LookAt(Camera.transform);
-	}
+        if (Camera != null)
+        {
+            HealthBarCanvas.transform.LookAt(Camera.transform);
+        }
+    }
+
+    private IEnumerator FindCamera()
+    {
+        while (Camera == null)
+        {
+            Camera = FindObjectOfType<Camera>();
+            yield return null;
+        }
+    }
 }
