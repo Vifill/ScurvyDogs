@@ -8,9 +8,12 @@ using UnityEngine.SceneManagement;
 
 public class MenuUIManager : MonoBehaviour
 {
+<<<<<<< HEAD
+=======
     public Dropdown GameModeDropDown;
     public Object Coop;
     public Object Versus;
+>>>>>>> 33f276d8add17e71e6a3dd87f0f2e90c81b3105a
     private NetworkManager NetworkManager;
 
     private void Start()
