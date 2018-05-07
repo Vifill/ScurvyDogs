@@ -71,6 +71,16 @@ public class EnemyHealth : NetworkBehaviour {
 
     public void GotHit(int pDamage)
     {
+        if (!isServer) return;
+        RpcHitParticles();
+        CurrentHP -= pDamage;
+
+        CheckIfDead();
+    }
+
+    [ClientRpc]
+    private void RpcHitParticles()
+    {
         if (!AudioTimerStart)
         {
             var particle = Instantiate(HitParticle, transform.position, transform.rotation, transform);
@@ -79,12 +89,6 @@ public class EnemyHealth : NetworkBehaviour {
 
             Destroy(particle, 3);
         }
-
-        if (!isServer) return;
-
-        CurrentHP -= pDamage;
-
-        CheckIfDead();
     }
 
     private void OnHealthChange(float pCurrentHealth)

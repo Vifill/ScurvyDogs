@@ -52,6 +52,6 @@ public class EnemySpawner : MonoBehaviour {
                 spawnRate -= 1;
             }
             yield return new WaitForSeconds(spawnRate);
-        }   
+        }
     }
 }

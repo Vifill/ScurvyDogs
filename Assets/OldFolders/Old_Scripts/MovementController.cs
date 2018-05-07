@@ -55,7 +55,6 @@ public class MovementController : NetworkBehaviour
         ModulateSpeed();
         Rotate();
         RotateHull();
-
     }
     
     private void RegisterInput()
@@ -72,8 +71,6 @@ public class MovementController : NetworkBehaviour
             if (CurrentSpeedMode > SpeedMode.Low)
             {
                 CmdChangeSails(-1);
-                //CurrentSpeedMode--;
-                //ChangeSails(CurrentSpeedMode);
             }
         }
 
