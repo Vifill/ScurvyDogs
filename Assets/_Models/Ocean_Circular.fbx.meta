@@ -1,22 +1,17 @@
 fileFormatVersion: 2
-guid: 35c10b8f9ca844d4a94bab44bae1a82e
-timeCreated: 1525447433
+guid: b58c3d74d2cc9644daca1546e9be98f1
+timeCreated: 1525685631
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: Ship_02
-    100002: //RootNode
-    400000: Ship_02
-    400002: //RootNode
-    2100000: lambert3SG
-    2100002: lambert7SG
-    2100004: lambert5SG
-    2100006: lambert4SG
-    2100008: lambert2SG
-    2300000: Ship_02
-    3300000: Ship_02
-    4300000: Ship_02
+    100000: //RootNode
+    400000: //RootNode
+    2100000: lambert1
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Ocean_Circular
+    9500000: //RootNode
   externalObjects: {}
   materials:
     importMaterials: 0
@@ -47,8 +42,8 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
-    meshCompression: 3
+    globalScale: 80
+    meshCompression: 0
     addColliders: 0
     importVisibility: 1
     importBlendShapes: 1
@@ -66,7 +61,7 @@ ModelImporter:
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
-    useFileScale: 1
+    useFileScale: 0
   tangentSpace:
     normalSmoothAngle: 0
     normalImportMode: 1
@@ -91,7 +86,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

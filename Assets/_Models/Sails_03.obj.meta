@@ -1,25 +1,21 @@
 fileFormatVersion: 2
-guid: 35c10b8f9ca844d4a94bab44bae1a82e
-timeCreated: 1525447433
+guid: 4a248b12ac168b74c9350b9ba2748dea
+timeCreated: 1525687967
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: Ship_02
+    100000: Sails3
     100002: //RootNode
-    400000: Ship_02
+    400000: Sails3
     400002: //RootNode
     2100000: lambert3SG
-    2100002: lambert7SG
-    2100004: lambert5SG
-    2100006: lambert4SG
-    2100008: lambert2SG
-    2300000: Ship_02
-    3300000: Ship_02
-    4300000: Ship_02
+    2300000: Sails3
+    3300000: Sails3
+    4300000: Sails3
   externalObjects: {}
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -48,7 +44,7 @@ ModelImporter:
   meshes:
     lODScreenPercentages: []
     globalScale: 1
-    meshCompression: 3
+    meshCompression: 0
     addColliders: 0
     importVisibility: 1
     importBlendShapes: 1
@@ -68,8 +64,8 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
-    normalSmoothAngle: 0
-    normalImportMode: 1
+    normalSmoothAngle: 60
+    normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
   importAnimation: 1

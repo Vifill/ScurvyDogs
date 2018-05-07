@@ -1,39 +1,20 @@
 fileFormatVersion: 2
-guid: 46352247ee00a6a4aaea8ef628786b3e
-timeCreated: 1525447495
+guid: 5084d84099cf96f4d8b89e0f879ea873
+timeCreated: 1525686499
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: Cannon5_CannonHole1
-    100002: Cannon6_CannonBarrel
-    100004: Mast1_Wood1
-    100006: //RootNode
-    100008: SmallMast2_Sail1
-    400000: Cannon5_CannonHole1
-    400002: Cannon6_CannonBarrel
-    400004: Mast1_Wood1
-    400006: //RootNode
-    400008: SmallMast2_Sail1
-    2100000: Cannon5_CannonHole1Mat
-    2100002: Cannon6_CannonBarrelMat
-    2100004: Mast1_Wood1Mat
-    2100006: SmallMast2_Sail1Mat
-    2300000: Cannon5_CannonHole1
-    2300002: Cannon6_CannonBarrel
-    2300004: Mast1_Wood1
-    2300006: SmallMast2_Sail1
-    3300000: Cannon5_CannonHole1
-    3300002: Cannon6_CannonBarrel
-    3300004: Mast1_Wood1
-    3300006: SmallMast2_Sail1
-    4300000: Cannon5_CannonHole1
-    4300002: Cannon6_CannonBarrel
-    4300004: Mast1_Wood1
-    4300006: SmallMast2_Sail1
+    100000: //RootNode
+    400000: //RootNode
+    2100000: lambert1
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Ocean_Circular
+    9500000: //RootNode
   externalObjects: {}
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -61,8 +42,8 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
-    meshCompression: 0
+    globalScale: 80
+    meshCompression: 3
     addColliders: 0
     importVisibility: 1
     importBlendShapes: 1
@@ -80,10 +61,10 @@ ModelImporter:
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
-    useFileScale: 1
+    useFileScale: 0
   tangentSpace:
-    normalSmoothAngle: 60
-    normalImportMode: 0
+    normalSmoothAngle: 0
+    normalImportMode: 1
     tangentImportMode: 3
     normalCalculationMode: 4
   importAnimation: 1
@@ -105,7 +86,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
