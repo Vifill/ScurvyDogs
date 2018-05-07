@@ -1,36 +1,39 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
 public class HealthSystem : NetworkBehaviour
 {
-    public float maxHP;
+    public float MaxHp;
     [SyncVar]
-    public float currentHP;
-    public float maxScurvy;
-    public float currentScurvy;
+    public float CurrentHp;
     public AudioClip DamageSFX;
     public GameObject HitParticle;
     public GameObject DeathParticle;
 
-    private UIManager uiManager;
-    private float AudioTimer = 0;
-    private bool AudioTimerStart = false;
-    private bool HasDied = false;
+    public int SpawnsLeft = 0;
+
+    private UIManager UIManager;
+    private float AudioTimer;
+    private bool AudioTimerStart;
+    private bool HasDied;
+
+    private List<NetworkStartPosition> SpawnPoints;
+    private MovementController MovementController;
 
     // Use this for initialization
     void Start()
     {
-        currentScurvy = 0;
-        uiManager = FindObjectOfType<UIManager>();
+        CurrentHp = MaxHp;
+        UIManager = FindObjectOfType<UIManager>();
+        MovementController = GetComponent<MovementController>();
     }
-
+    
     // Update is called once per frame
     void Update()
     {
-        ScurvyMeter();
-        CheckIfDead();
         if (AudioTimerStart)
         {
             AudioTimer += Time.deltaTime;
@@ -40,41 +43,59 @@ public class HealthSystem : NetworkBehaviour
                 AudioTimer = 0;
             }
         }
-        if (currentHP >= maxHP)
+        if (CurrentHp >= MaxHp)
         {
-            currentHP = maxHP;
-        }
-        if (currentScurvy <= 0f)
-        {
-            currentScurvy = 0f;
+            CurrentHp = MaxHp;
         }
     }
-
-    private void ScurvyMeter()
-    {
-        currentScurvy += Time.deltaTime;
-    }
-
+    
     private void CheckIfDead()
     {
-        if (currentHP <= 0)
+        if (CurrentHp <= 0)
         {
-            currentHP = 0;
+            CurrentHp = 0;
             if (!HasDied)
             {
                 HasDied = true;
-                transform.GetChild(0).gameObject.SetActive(false);
+                //Disable the visuals
+                MovementController.HullModel.gameObject.SetActive(false);
                 transform.Find("TrailHolder").gameObject.SetActive(false);
-                transform.Find("Camera").parent = null;
-                var particle = Instantiate(DeathParticle, transform.position, transform.rotation, null);
-                Invoke("Death", 2);
+                Instantiate(DeathParticle, transform.position, transform.rotation, null);
+                MovementController.SetMovement(false);
+                //Respawn the player if he has spawns left
+                if (SpawnsLeft > 0)
+                {
+                    Invoke("RpcRespawn", 2);
+                    SpawnsLeft--;
+                }
+                else
+                {
+                    //TODO: Call endscreen
+                }
             }
-
         }
-        else if (currentScurvy >= 100)
+    }
+
+    [ClientRpc]
+    void RpcRespawn()
+    {
+        if (isLocalPlayer)
         {
-            uiManager.DeathText.text = "Until you died from scurvy";
-            uiManager.ShowDeathMenu();
+            Vector3 spawnPoint = Vector3.zero;
+
+            // If there is a spawn point array and the array is not empty, pick one at random
+            if (SpawnPoints != null && SpawnPoints.Count > 0)
+            {
+                spawnPoint = SpawnPoints[UnityEngine.Random.Range(0, SpawnPoints.Count)].transform.position;
+            }
+            transform.position = spawnPoint;
+
+            //Enable everything again
+            MovementController.HullModel.gameObject.SetActive(true);
+            transform.Find("TrailHolder").gameObject.SetActive(true);
+            MovementController.SetMovement(true);
+            CurrentHp = MaxHp;
+            HasDied = false;
         }
     }
 
@@ -84,8 +105,9 @@ public class HealthSystem : NetworkBehaviour
         {
             return;
         }
+        //Make all clients instantiate 'hit' particle effect
         RpcParticleHit();
-        currentHP -= pDamage;
+        ChangeHp(-pDamage);
     }
 
     [ClientRpc]
@@ -103,7 +125,13 @@ public class HealthSystem : NetworkBehaviour
 
     public void Death()
     {
-        uiManager.DeathText.text = "Until you died";
-        uiManager.ShowDeathMenu();
+        UIManager.DeathText.text = "Until you died";
+        UIManager.ShowDeathMenu();
+    }
+
+    public void ChangeHp(int pValue)
+    {
+        CurrentHp += pValue;
+        CheckIfDead();
     }
 }
