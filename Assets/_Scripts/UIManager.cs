@@ -104,6 +104,7 @@ public class UIManager : NetworkBehaviour
 
     public void LeaveGame()
     {
+        Time.timeScale = 1;
         if (!isClient)
         {
             NetworkManager.singleton.StopHost();
