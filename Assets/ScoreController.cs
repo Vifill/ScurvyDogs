@@ -39,6 +39,7 @@ public class ScoreController : NetworkBehaviour
         NetworkManager = FindObjectOfType<NetworkManager>();
         HostScore = 0;
         ClientScore = 0;
+        // TODO: láta þetta shit virka bæði á client og host
     }
 
     public void GivePlayerScore(int pPlayerId)
