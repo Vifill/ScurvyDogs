@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
-  showGUI: 1
+  showGUI: 0
   offsetX: 0
   offsetY: 0
 --- !u!114 &114754648839306508
@@ -85,7 +85,6 @@ MonoBehaviour:
   m_SpawnPrefabs:
   - {fileID: 1757885919889210, guid: ebbb78a30ef810545bf452dd23d1a5ec, type: 2}
   - {fileID: 1136260951534024, guid: a1daf122fb344b64aba76a7874178ffc, type: 2}
-  - {fileID: 0}
   m_CustomConfig: 0
   m_MaxConnections: 4
   m_ConnectionConfig:

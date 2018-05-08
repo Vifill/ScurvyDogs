@@ -20,6 +20,7 @@ public class UIManager : NetworkBehaviour
     private float HealthPercent;
     private float Timer;
     private string NiceTime;
+    private bool IsVersusMode = false;
 
     private HealthSystem HealthSys;
     private NetworkManager NetworkManager;
@@ -27,6 +28,10 @@ public class UIManager : NetworkBehaviour
 	// Use this for initialization
 	void Start ()
 	{
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(2))
+        {
+            IsVersusMode = true;
+        }
         NetworkManager = FindObjectOfType<NetworkManager>();
     }
 
@@ -39,13 +44,16 @@ public class UIManager : NetworkBehaviour
     // Update is called once per frame
     void Update ()
     {
-        Timer += Time.deltaTime;
-        HealthText.text = "HP: " + HealthSys.CurrentHp.ToString("#");
-        int minutes = Mathf.FloorToInt(Timer / 60F);
-        int seconds = Mathf.FloorToInt(Timer - minutes * 60);
-        NiceTime = string.Format("{0:0}:{1:00}", minutes, seconds);
-        TimerText.text = NiceTime;
+        if (!IsVersusMode)
+        {
+            Timer += Time.deltaTime;
+            int minutes = Mathf.FloorToInt(Timer / 60F);
+            int seconds = Mathf.FloorToInt(Timer - minutes * 60);
+            NiceTime = string.Format("{0:0}:{1:00}", minutes, seconds);
+            TimerText.text = NiceTime;
+        }
 
+        HealthText.text = "HP: " + HealthSys.CurrentHp.ToString("#");
         HpMeter();
     }
     
@@ -72,9 +80,12 @@ public class UIManager : NetworkBehaviour
 
     public void ShowDeathMenu()
     {
-        Time.timeScale = 0;
-        DeathTimeText.text = "You survived for " + NiceTime + " minutes";
-        DeathMenu.SetActive(true);
+        if (!IsVersusMode)
+        {
+            Time.timeScale = 0;
+            DeathTimeText.text = "You survived for " + NiceTime + " minutes";
+            DeathMenu.SetActive(true);
+        }   
     }
 
     public void HideDeath()
