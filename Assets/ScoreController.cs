@@ -39,8 +39,6 @@ public class ScoreController : NetworkBehaviour
 
     public void GivePlayerScore(int pPlayerId)
     {
-        if (!isServer) return;
-
         if (pPlayerId == 1)
         {
             HostScore++;

@@ -22,6 +22,7 @@ public class CannonBallController : NetworkBehaviour {
 
     private void OnTriggerEnter(Collider collider)
     {
+        
         if (collider.gameObject.tag == "Enemy")
         {
             Debug.Log("hit");
@@ -32,6 +33,11 @@ public class CannonBallController : NetworkBehaviour {
         {
             Debug.Log("Player hit");
             collider.gameObject.GetComponent<HealthSystem>().GotHit(10);
+        }
+
+        if (collider.gameObject.tag == "Ocean")
+        {
+            return;
         }
         Destroy(gameObject);
     }

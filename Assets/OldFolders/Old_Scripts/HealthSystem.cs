@@ -68,7 +68,7 @@ public class HealthSystem : NetworkBehaviour
 
                 if (ScoreController != null)
                 {
-                    if (isClient)
+                    if (isLocalPlayer)
                     {
                         ScoreController.GivePlayerScore(2);
                     }
