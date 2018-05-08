@@ -7,17 +7,9 @@ public class GameControllerVersus : MonoBehaviour
 {
     public GameObject ScoreController;
 
-	// Use this for initialization
-	private void Start() 
-	{
-
-    }
-
     public void Initialize(GameObject pShip)
     {
         Instantiate(ScoreController);
-
-        var healthSys = pShip.GetComponent<HealthSystem>();
-        healthSys.SpawnsLeft = 3;
+        pShip.GetComponent<HealthSystem>().CmdSetSpawns(3);
     }
 }

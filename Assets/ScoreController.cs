@@ -20,11 +20,6 @@ public class ScoreController : NetworkBehaviour
     private Transform MainCanvas;
     private NetworkManager NetworkManager;
 
-	// Use this for initialization
-	private void Start() 
-	{
-    }
-
     public void Initialize()
     {
         MainCanvas = GameObject.FindGameObjectWithTag("MainCanvas").transform;

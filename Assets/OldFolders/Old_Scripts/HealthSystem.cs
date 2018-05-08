@@ -14,7 +14,7 @@ public class HealthSystem : NetworkBehaviour
     public GameObject HitParticle;
     public GameObject DeathParticle;
 
-    public int SpawnsLeft = 0;
+    public int SpawnsLeft;
 
     private Animator Animator;
     private UIManager UIManager;
@@ -68,14 +68,7 @@ public class HealthSystem : NetworkBehaviour
 
                 if (ScoreController != null)
                 {
-                    if (isLocalPlayer)
-                    {
-                        ScoreController.GivePlayerScore(2);
-                    }
-                    else
-                    {
-                        ScoreController.GivePlayerScore(1);
-                    }
+                    ScoreController.GivePlayerScore(isClient ? 2 : 1);
                 }
 
                 //Respawn the player if he has spawns left
@@ -210,5 +203,11 @@ public class HealthSystem : NetworkBehaviour
     {
         CurrentHp += pValue;
         CheckIfDead();
+    }
+
+    [Command]
+    public void CmdSetSpawns(int pValue)
+    {
+        SpawnsLeft = pValue;
     }
 }
