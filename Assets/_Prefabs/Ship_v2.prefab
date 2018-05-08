@@ -55,6 +55,7 @@ GameObject:
   - component: {fileID: 124344105324595728}
   - component: {fileID: 92443012033124344}
   - component: {fileID: 81945514962391812}
+  - component: {fileID: 114827146764108474}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -278,7 +279,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1551642712807158}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -48, y: -1, z: 136}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4548552682616306}
@@ -1079,6 +1080,18 @@ MonoBehaviour:
   Particle_ShipSpawn: {fileID: 4081001246607764, guid: 4f4d280dd8da9334ea1b47ed3eac34df,
     type: 2}
   ParticlePosition: {fileID: 4040086727671356}
+--- !u!114 &114827146764108474
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1200443631129576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 42f98d4ce7ecd694bac0c3133a9dd76e, type: 2}
 --- !u!114 &114968017648463616
 MonoBehaviour:
   m_ObjectHideFlags: 1
