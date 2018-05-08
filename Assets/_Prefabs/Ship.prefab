@@ -1076,7 +1076,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHp: 100
-  CurrentHp: 20
+  CurrentHp: 100
   DamageSFX: {fileID: 8300000, guid: fcf7e4bd5d227204c98bd40959c52422, type: 3}
   HitParticle: {fileID: 1805967295874582, guid: 105fde0e89f4309428589f9edfe59566,
     type: 2}
