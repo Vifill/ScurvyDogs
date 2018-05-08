@@ -39,6 +39,9 @@ public class UIManager : NetworkBehaviour
         HideDeath();
         if (IsVersusMode)
         {
+            var versusController = FindObjectOfType<GameControllerVersus>();
+            versusController.Initialize(pGameObject);
+            
             FindObjectOfType<ScoreController>().Initialize();
         }
     }

@@ -9,8 +9,8 @@ using UnityEngine.SceneManagement;
 public class MenuUIManager : MonoBehaviour
 {
     public Dropdown GameModeDropDown;
-    private string Coop = "TestScene_Scurvy_Teddi";
-    private string Versus = "TestScene_Versus";
+    private string Coop = "Game_Coop";
+    private string Versus = "Game_Versus";
     private NetworkManager NetworkManager;
     private NetworkDiscovery NetworkDiscoverer;
 

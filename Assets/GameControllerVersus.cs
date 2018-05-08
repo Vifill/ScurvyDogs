@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,12 +10,14 @@ public class GameControllerVersus : MonoBehaviour
 	// Use this for initialization
 	private void Start() 
 	{
+
+    }
+
+    public void Initialize(GameObject pShip)
+    {
         Instantiate(ScoreController);
-	}
-	
-	// Update is called once per frame
-	private void Update() 
-	{
-		
-	}
+
+        var healthSys = pShip.GetComponent<HealthSystem>();
+        healthSys.SpawnsLeft = 3;
+    }
 }
