@@ -365,7 +365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11b61a9fbea30c54bab5128a35048563, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OrangeParticle: {fileID: 1078005906064438, guid: 44fbffa400429a542ab3f4772580663f,
+  OrangeParticle: {fileID: 1678296779978066, guid: 7f56387ef3a274a40bd02315454c5900,
     type: 2}
 --- !u!135 &135335798867203864
 SphereCollider:
