@@ -12,6 +12,7 @@ public class EnemyHealth : NetworkBehaviour {
     public float CurrentHP = maxHP;
     public GameObject Orange;
     public AudioClip DamageSFX;
+    public AudioClip DeathSFX;
     public GameObject HitParticle;
     public GameObject DestroyParticle;
     public Image HealthBar;
@@ -63,6 +64,7 @@ public class EnemyHealth : NetworkBehaviour {
         transform.GetChild(0).gameObject.SetActive(false);
         HealthBarCanvas.SetActive(false);
         GetComponent<ShootingSystem>().enabled = false;
+        GetComponent<AudioSource>().PlayOneShot(DeathSFX);
         //eSpawn.enemyCount -= 1;
         isDead = true;
         //DestroyTheShip();

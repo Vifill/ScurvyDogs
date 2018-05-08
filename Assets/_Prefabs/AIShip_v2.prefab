@@ -1101,6 +1101,7 @@ MonoBehaviour:
   CurrentHP: 100
   Orange: {fileID: 1883283185134160, guid: 8b165270cf648664080f1def63d70091, type: 2}
   DamageSFX: {fileID: 8300000, guid: fcf7e4bd5d227204c98bd40959c52422, type: 3}
+  DeathSFX: {fileID: 8300000, guid: f93dcad1b17b15f47893f656ec9297c6, type: 3}
   HitParticle: {fileID: 1396495339943204, guid: be021873ab97c734485a084c42d8a8e1,
     type: 2}
   DestroyParticle: {fileID: 1486297097845776, guid: 7fee9efc40f792041934939475378cf7,

@@ -11,6 +11,7 @@ public class HealthSystem : NetworkBehaviour
     [SyncVar]
     public float CurrentHp;
     public AudioClip DamageSFX;
+    public AudioClip DeathSFX;
     public GameObject HitParticle;
     public GameObject DeathParticle;
 
@@ -108,6 +109,7 @@ public class HealthSystem : NetworkBehaviour
         transform.Find("TrailHolder").gameObject.SetActive(false);
         Instantiate(DeathParticle, transform.position, transform.rotation, null);
         MovementController.HullModel.gameObject.SetActive(false);
+        GetComponent<AudioSource>().PlayOneShot(DeathSFX);
 
         if (isLocalPlayer)
         {
