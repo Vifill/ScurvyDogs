@@ -9,14 +9,13 @@ public class MenuUIManager : MonoBehaviour
     public Dropdown GameModeDropDown;
     private string Coop = "Game_Coop";
     private string Versus = "Game_Versus";
-    private NetworkManager NetworkManager;
-    private NetworkDiscovery NetworkDiscoverer;
+    //private NetworkManager NetworkManager;
+    //private NetworkDiscovery NetworkDiscoverer;
 
     private void Start()
     {
-        NetworkManager = FindObjectOfType<NetworkManager>();
-        NetworkManager.onlineScene = Coop;
-        NetworkDiscoverer = FindObjectOfType<NetworkDiscovery>();
+        NetworkManager.singleton.onlineScene = Coop;
+        CustomNetworkDiscoverer.Instance.onServerDetected += OnReceiveBraodcast;
     }
 
     public void SelectGameMode()
@@ -24,27 +23,40 @@ public class MenuUIManager : MonoBehaviour
         if (GameModeDropDown.value == 0)
         {
             //coop
-            NetworkManager.onlineScene = Coop;
+            NetworkManager.singleton.onlineScene = Coop;
         }
         else if (GameModeDropDown.value == 1)
         {
             //Versus
-            NetworkManager.onlineScene = Versus;
+            NetworkManager.singleton.onlineScene = Versus;
         }
     }
 
     public void ButtonStartHost()
     {
-        NetworkDiscoverer.Initialize();
-        NetworkDiscoverer.StartAsServer();
-        NetworkManager.StartHost();
+        CustomNetworkDiscoverer.Instance.StartBroadcasting();
+        NetworkManager.singleton.StartHost();
     }
 
     public void ButtonStartClient()
     {
-        NetworkDiscoverer.Initialize();
-        NetworkDiscoverer.StartAsClient();
-        NetworkManager.StartClient();
+        CustomNetworkDiscoverer.Instance.ReceiveBraodcast();
+
+        //NetworkDiscoverer.Initialize();
+        //NetworkDiscoverer.StartAsClient();
+        //NetworkManager.StartClient();
+    }
+
+    public void JoinGame(string pIp)
+    {
+        NetworkManager.singleton.networkAddress = pIp;
+        NetworkManager.singleton.StartClient();
+        CustomNetworkDiscoverer.Instance.StopBroadcasting();
+    }
+
+    public void OnReceiveBraodcast(string fromIp, string data)
+    {
+        JoinGame(fromIp);
     }
 
     public void ExitButton()

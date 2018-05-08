@@ -23,7 +23,7 @@ public class UIManager : NetworkBehaviour
     private bool IsVersusMode = false;
 
     private HealthSystem HealthSys;
-    private NetworkManager NetworkManager;
+    //private NetworkManager NetworkManager;
     private GameControllerVersus GameControllerVersus;
 
     internal void Initialize(GameObject pGameObject)
@@ -33,7 +33,6 @@ public class UIManager : NetworkBehaviour
         {
             IsVersusMode = true;
         }
-        NetworkManager = FindObjectOfType<NetworkManager>();
 
         HealthSys = pGameObject.GetComponent<HealthSystem>();
         HideDeath();
@@ -113,11 +112,11 @@ public class UIManager : NetworkBehaviour
     {
         if (!isClient)
         {
-            NetworkManager.StopHost();
+            NetworkManager.singleton.StopHost();
         }
         else
         {
-            NetworkManager.StopClient();
+            NetworkManager.singleton.StopClient();
         }
     }
 }
