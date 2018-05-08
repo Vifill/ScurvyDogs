@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4925001463485714}
   - component: {fileID: 114754648839306508}
   - component: {fileID: 114100493286600996}
-  - component: {fileID: 114226053860564912}
+  - component: {fileID: 114274908899377728}
   m_Layer: 0
   m_Name: NetworkManager
   m_TagString: Untagged
@@ -57,7 +57,7 @@ MonoBehaviour:
   showGUI: 0
   offsetX: 0
   offsetY: 0
---- !u!114 &114226053860564912
+--- !u!114 &114274908899377728
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1274170948968164}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1553936188, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Script: {fileID: 11500000, guid: bbacc45baf7f43041a2d35d0bb523495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_BroadcastPort: 47777
@@ -73,9 +73,9 @@ MonoBehaviour:
   m_BroadcastVersion: 1
   m_BroadcastSubVersion: 1
   m_BroadcastInterval: 1000
-  m_UseNetworkManager: 1
+  m_UseNetworkManager: 0
   m_BroadcastData: HELLO
-  m_ShowGUI: 1
+  m_ShowGUI: 0
   m_OffsetX: 0
   m_OffsetY: 0
 --- !u!114 &114754648839306508
@@ -107,6 +107,7 @@ MonoBehaviour:
   m_SpawnPrefabs:
   - {fileID: 1757885919889210, guid: ebbb78a30ef810545bf452dd23d1a5ec, type: 2}
   - {fileID: 1136260951534024, guid: a1daf122fb344b64aba76a7874178ffc, type: 2}
+  - {fileID: 1315535282961140, guid: a7aecf8bbbd84a340b2f4fb4949fe94a, type: 2}
   m_CustomConfig: 0
   m_MaxConnections: 4
   m_ConnectionConfig:

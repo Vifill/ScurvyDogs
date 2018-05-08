@@ -122,6 +122,7 @@ public class ScoreController : NetworkBehaviour
 
     public void LeaveGame()
     {
+        Time.timeScale = 1;
         if (!isClient)
         {
             NetworkManager.StopHost();
@@ -131,5 +132,4 @@ public class ScoreController : NetworkBehaviour
             NetworkManager.StopClient();
         }
     }
-
 }

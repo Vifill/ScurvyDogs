@@ -53,8 +53,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnDist: 200
-  spawnRate: 20
-  maxEnemy: 10
+  spawnRate: 13
+  maxEnemy: 20
   enemyCount: 0
   EnemyPrefab: {fileID: 1757885919889210, guid: ebbb78a30ef810545bf452dd23d1a5ec,
     type: 2}

@@ -84,10 +84,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6a1219c8b7aa5e46a698ac73b4000f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scurvyMeter: {fileID: 0}
-  healthMeter: {fileID: 0}
-  scurvyText: {fileID: 0}
-  healthText: {fileID: 0}
-  timerText: {fileID: 0}
-  deathTimeText: {fileID: 0}
-  deathText: {fileID: 0}
+  HealthMeterImage: {fileID: 0}
+  HealthText: {fileID: 0}
+  TimerText: {fileID: 0}
+  DeathTimeText: {fileID: 0}
+  DeathText: {fileID: 0}
+  PauseMenu: {fileID: 0}
+  DeathMenu: {fileID: 0}
+  NiceTime: 

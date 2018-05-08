@@ -5,12 +5,11 @@ using UnityEngine;
 public class OrangeForce : MonoBehaviour
 {
     public GameObject OrangeParticle;
-    private HealthSystem HealthSys;
     private bool FrozeVelocity;
 	// Use this for initialization
 	void Start ()
 	{
-        HealthSys = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthSystem>();
+        //HealthSys = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthSystem>();
         float rndX = Random.Range(2.0f, 10.0f);
         float rndZ = Random.Range(2.0f, 10.0f);
 
@@ -36,7 +35,7 @@ public class OrangeForce : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            HealthSys.ChangeHp(5);
+            other.GetComponent<HealthSystem>().ChangeHp(5);
             GetComponent<AudioSource>().Play();
             GetComponent<SphereCollider>().enabled = false;
             transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;

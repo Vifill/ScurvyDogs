@@ -48,11 +48,8 @@ public class EnemySpawner : MonoBehaviour {
     {
         while (true)
         {
-            if (enemyCount <= maxEnemy)
-            {
-                SpawnEnemy();
-                enemyCount++;
-            }
+            SpawnEnemy();
+            //enemyCount++;
 
             if (spawnRate >= 5f)
             {
