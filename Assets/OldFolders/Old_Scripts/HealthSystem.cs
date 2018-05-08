@@ -24,6 +24,7 @@ public class HealthSystem : NetworkBehaviour
 
     private List<NetworkStartPosition> SpawnPoints;
     private MovementController MovementController;
+    private ScoreController ScoreController;
 
     // Use this for initialization
     void Start()
@@ -32,6 +33,7 @@ public class HealthSystem : NetworkBehaviour
         CurrentHp = MaxHp;
         UIManager = FindObjectOfType<UIManager>();
         MovementController = GetComponent<MovementController>();
+        ScoreController = FindObjectOfType<ScoreController>();
     }
     
     // Update is called once per frame
@@ -63,7 +65,19 @@ public class HealthSystem : NetworkBehaviour
                 //Disable the visuals
 
                 RpcDisableShip();
-                
+
+                if (ScoreController != null)
+                {
+                    if (isClient)
+                    {
+                        ScoreController.GivePlayerScore(2);
+                    }
+                    else
+                    {
+                        ScoreController.GivePlayerScore(1);
+                    }
+                }
+
                 //Respawn the player if he has spawns left
                 if (SpawnsLeft > 0)
                 {
@@ -130,7 +144,7 @@ public class HealthSystem : NetworkBehaviour
     {
         if (isLocalPlayer)
         {
-            Vector3 spawnPoint = Vector3.zero;
+            Vector3 spawnPoint = /*Vector3.zero*/ new Vector3(0f, 1.5f, 0);
 
             // If there is a spawn point array and the array is not empty, pick one at random
             if (SpawnPoints != null && SpawnPoints.Count > 0)

@@ -13,9 +13,6 @@ public class AudioManager : MonoBehaviour
 	private void Start() 
 	{
         Asource = GetComponent<AudioSource>();
-        Asource.clip = SongList[0];
-        Asource.Play();
-        SongList.RemoveAt(0);
         SongList.Shuffle();
         SongQueue = new Queue<AudioClip>(SongList);
 	}
