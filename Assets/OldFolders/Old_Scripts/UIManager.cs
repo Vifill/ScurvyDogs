@@ -24,21 +24,23 @@ public class UIManager : NetworkBehaviour
 
     private HealthSystem HealthSys;
     private NetworkManager NetworkManager;
+    private GameControllerVersus GameControllerVersus;
 
-	// Use this for initialization
-	void Start ()
-	{
-        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(2))
+    internal void Initialize(GameObject pGameObject)
+    {
+        GameControllerVersus = FindObjectOfType<GameControllerVersus>();
+        if (GameControllerVersus != null)
         {
             IsVersusMode = true;
         }
         NetworkManager = FindObjectOfType<NetworkManager>();
-    }
 
-    internal void Initialize(GameObject pGameObject)
-    {
         HealthSys = pGameObject.GetComponent<HealthSystem>();
         HideDeath();
+        if (IsVersusMode)
+        {
+            FindObjectOfType<ScoreController>().Initialize();
+        }
     }
 
     // Update is called once per frame

@@ -23,13 +23,10 @@ public class ScoreController : NetworkBehaviour
 	// Use this for initialization
 	private void Start() 
 	{
-        StartCoroutine(Initialize());     
     }
 
-    private IEnumerator Initialize()
+    public void Initialize()
     {
-        yield return new WaitForEndOfFrame();
-
         MainCanvas = GameObject.FindGameObjectWithTag("MainCanvas").transform;
         var timerText = MainCanvas.Find("TimeText");
         timerText.gameObject.SetActive(false);

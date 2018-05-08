@@ -9,14 +9,14 @@ using UnityEngine.SceneManagement;
 public class MenuUIManager : MonoBehaviour
 {
     public Dropdown GameModeDropDown;
-    public Object Coop;
-    public Object Versus;
+    private string Coop = "TestScene_Scurvy_Teddi";
+    private string Versus = "TestScene_Versus";
     private NetworkManager NetworkManager;
 
     private void Start()
     {
         NetworkManager = FindObjectOfType<NetworkManager>();
-        NetworkManager.onlineScene = Coop.name;
+        NetworkManager.onlineScene = Coop;
     }
 
     public void SelectGameMode()
@@ -24,12 +24,12 @@ public class MenuUIManager : MonoBehaviour
         if (GameModeDropDown.value == 0)
         {
             //coop
-            NetworkManager.onlineScene = Coop.name;
+            NetworkManager.onlineScene = Coop;
         }
         else if (GameModeDropDown.value == 1)
         {
             //Versus
-            NetworkManager.onlineScene = Versus.name;
+            NetworkManager.onlineScene = Versus;
         }
     }
 
