@@ -16,6 +16,7 @@ public class HealthSystem : NetworkBehaviour
 
     public int SpawnsLeft = 0;
 
+    private Animator Animator;
     private UIManager UIManager;
     private float AudioTimer;
     private bool AudioTimerStart;
@@ -28,6 +29,7 @@ public class HealthSystem : NetworkBehaviour
     // Use this for initialization
     void Start()
     {
+        Animator = GetComponent<Animator>();
         CurrentHp = MaxHp;
         UIManager = FindObjectOfType<UIManager>();
         MovementController = GetComponent<MovementController>();
@@ -157,6 +159,11 @@ public class HealthSystem : NetworkBehaviour
             MovementController.SetMovement(true);
             CurrentHp = MaxHp;
             HasDied = false;
+            SetAnimation(1);
+            //Animator.playbackTime = 0;
+            Animator.Play("Spawn", -1, 0f);
+            //Animator.
+            //Animator.SetBool(0, true);
         }
     }
 
@@ -182,6 +189,11 @@ public class HealthSystem : NetworkBehaviour
 
             Destroy(particle, 3);
         }
+    }
+
+    public void SetAnimation(int pValue)
+    {
+        Animator.enabled = pValue != 0;
     }
 
     public void Death()
