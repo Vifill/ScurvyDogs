@@ -98,16 +98,15 @@ MonoBehaviour:
   m_ScriptCRCCheck: 1
   m_MaxDelay: 0.01
   m_LogLevel: 2
-  m_PlayerPrefab: {fileID: 1368400319332362, guid: 60cd50ff4a889b242866b4327e93c5f6,
+  m_PlayerPrefab: {fileID: 1551642712807158, guid: e4b005c0a45f47444b13c305edd33c01,
     type: 2}
   m_AutoCreatePlayer: 1
   m_PlayerSpawnMethod: 0
   m_OfflineScene: MainMenu
   m_OnlineScene: TestScene_Scurvy_Teddi
   m_SpawnPrefabs:
-  - {fileID: 1368400319332362, guid: 60cd50ff4a889b242866b4327e93c5f6, type: 2}
+  - {fileID: 1757885919889210, guid: ebbb78a30ef810545bf452dd23d1a5ec, type: 2}
   - {fileID: 1136260951534024, guid: a1daf122fb344b64aba76a7874178ffc, type: 2}
-  - {fileID: 1978986624825958, guid: 5ad811e86250bd348a06f2308e67f4e3, type: 2}
   m_CustomConfig: 0
   m_MaxConnections: 4
   m_ConnectionConfig:

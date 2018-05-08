@@ -17,7 +17,6 @@ public class ScoreController : NetworkBehaviour
     private Text ScoreTextEndScreen;
     private Text WinLossText;
     private Text ScoreText;
-    private bool GameWon;
     private Transform MainCanvas;
     private NetworkManager NetworkManager;
 
@@ -86,7 +85,7 @@ public class ScoreController : NetworkBehaviour
         {
             RpcDisplayScoreScreen(true);
         }
-        else
+        else if (ClientScore >= 3)
         {
             RpcDisplayScoreScreen(false);
         }
