@@ -127,6 +127,10 @@ public class HealthSystem : NetworkBehaviour
     {
         if (isLocalPlayer)
         {
+            if (!GameObject.FindGameObjectsWithTag("Player").Any())
+            {
+                UIManager.ShowDeathMenu();
+            }
             var otherCam = GameObject.FindGameObjectsWithTag("Player").FirstOrDefault(a => a != gameObject).transform.Find("Camera");
             otherCam.gameObject.SetActive(true);
             CmdKillMe();
