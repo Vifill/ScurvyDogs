@@ -1047,7 +1047,7 @@ MonoBehaviour:
     type: 2}
   LeftCannons: {fileID: 1828741071860894}
   RightCannons: {fileID: 1985084825420178}
-  CannonBallPrefab: {fileID: 1136260951534024, guid: a1daf122fb344b64aba76a7874178ffc,
+  CannonBallPrefab: {fileID: 1315535282961140, guid: a7aecf8bbbd84a340b2f4fb4949fe94a,
     type: 2}
   CannonSFX: {fileID: 8300000, guid: 0db9e3be5bc828f409e0407a44924dce, type: 3}
   BulletStartVelocity: 125
