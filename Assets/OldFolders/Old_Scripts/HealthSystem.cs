@@ -120,7 +120,7 @@ public class HealthSystem : NetworkBehaviour
     {
         if (isLocalPlayer)
         {
-            if (!GameObject.FindGameObjectsWithTag("Player").Any())
+            if (!GameObject.FindGameObjectsWithTag("Player").Any(a=> !a.GetComponent<HealthSystem>().HasDied))
             {
                 UIManager.ShowDeathMenu();
             }
