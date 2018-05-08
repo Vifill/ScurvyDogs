@@ -165,8 +165,8 @@ GameObject:
   - component: {fileID: 114452626447105942}
   - component: {fileID: 114204526345743764}
   - component: {fileID: 114340049853751712}
-  - component: {fileID: 95818265960850744}
   - component: {fileID: 114743500133428522}
+  - component: {fileID: 95443431330494258}
   m_Layer: 0
   m_Name: Ship_v2
   m_TagString: Player
@@ -201,7 +201,6 @@ GameObject:
   - component: {fileID: 4836326358341690}
   - component: {fileID: 33907698257248622}
   - component: {fileID: 23685690361220272}
-  - component: {fileID: 95356176370247434}
   m_Layer: 0
   m_Name: Ship_01
   m_TagString: Untagged
@@ -822,24 +821,7 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1200443631129576}
   m_Enabled: 1
---- !u!95 &95356176370247434
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1580710362009034}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 158bc19a3fafbfb42acf5c0f7df32c11, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
---- !u!95 &95818265960850744
+--- !u!95 &95443431330494258
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
