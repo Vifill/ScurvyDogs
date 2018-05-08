@@ -17,7 +17,6 @@ public class ScoreController : NetworkBehaviour
     private Text ScoreTextEndScreen;
     private Text WinLossText;
     private Text ScoreText;
-    private bool GameWon;
     private Transform MainCanvas;
     private NetworkManager NetworkManager;
 
@@ -39,7 +38,6 @@ public class ScoreController : NetworkBehaviour
         NetworkManager = FindObjectOfType<NetworkManager>();
         HostScore = 0;
         ClientScore = 0;
-        // TODO: láta þetta shit virka bæði á client og host
     }
 
     public void GivePlayerScore(int pPlayerId)
@@ -87,7 +85,7 @@ public class ScoreController : NetworkBehaviour
         {
             RpcDisplayScoreScreen(true);
         }
-        else
+        else if (ClientScore >= 3)
         {
             RpcDisplayScoreScreen(false);
         }

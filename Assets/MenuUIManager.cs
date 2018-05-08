@@ -12,10 +12,12 @@ public class MenuUIManager : MonoBehaviour
     public Object Coop;
     public Object Versus;
     private NetworkManager NetworkManager;
+    private NetworkDiscovery NetworkDiscoverer;
 
     private void Start()
     {
         NetworkManager = FindObjectOfType<NetworkManager>();
+        NetworkDiscoverer = FindObjectOfType<NetworkDiscovery>();
         NetworkManager.onlineScene = Coop.name;
     }
 
@@ -35,11 +37,15 @@ public class MenuUIManager : MonoBehaviour
 
     public void ButtonStartHost()
     {
+        NetworkDiscoverer.Initialize();
+        NetworkDiscoverer.StartAsServer();
         NetworkManager.StartHost();
     }
 
     public void ButtonStartClient()
     {
+        NetworkDiscoverer.Initialize();
+        NetworkDiscoverer.StartAsClient();
         NetworkManager.StartClient();
     }
 
