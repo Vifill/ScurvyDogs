@@ -1106,6 +1106,7 @@ MonoBehaviour:
   MaxHp: 100
   CurrentHp: 100
   DamageSFX: {fileID: 8300000, guid: fcf7e4bd5d227204c98bd40959c52422, type: 3}
+  DeathSFX: {fileID: 8300000, guid: f93dcad1b17b15f47893f656ec9297c6, type: 3}
   HitParticle: {fileID: 1158542799619912, guid: c568c640288b86d44be1ae08586fee34,
     type: 2}
   DeathParticle: {fileID: 1355996012147160, guid: 05e734fad5d1ad34995858ca9bb9459f,
