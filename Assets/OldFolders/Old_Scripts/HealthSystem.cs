@@ -122,12 +122,24 @@ public class HealthSystem : NetworkBehaviour
         {
             if (!GameObject.FindGameObjectsWithTag("Player").Any(a=> !a.GetComponent<HealthSystem>().HasDied))
             {
-                UIManager.ShowDeathMenu();
+                CmdEndGame();
             }
             var otherCam = GameObject.FindGameObjectsWithTag("Player").FirstOrDefault(a => a != gameObject).transform.Find("Camera");
             otherCam.gameObject.SetActive(true);
             CmdKillMe();
         }
+    }
+
+    [Command]
+    private void CmdEndGame()
+    {
+        RpcShowEndGameUI(UIManager.NiceTime);
+    }
+
+    [ClientRpc]
+    private void RpcShowEndGameUI(string pTimerText)
+    {
+        UIManager.ShowDeathMenu(pTimerText);
     }
 
     [Command]
@@ -151,17 +163,15 @@ public class HealthSystem : NetworkBehaviour
             transform.position = spawnPoint;
 
             //Enable everything again
-            MovementController.HullModel.gameObject.SetActive(true);
-            transform.Find("TrailHolder").gameObject.SetActive(true);
-            MovementController.SetMovement(true);
-            CurrentHp = MaxHp;
-            HasDied = false;
-            SetAnimation(1);
-            //Animator.playbackTime = 0;
-            Animator.Play("Spawn", -1, 0f);
-            //Animator.
-            //Animator.SetBool(0, true);
+            
         }
+        MovementController.SetMovement(true);
+        MovementController.HullModel.gameObject.SetActive(true);
+        transform.Find("TrailHolder").gameObject.SetActive(true);
+        CurrentHp = MaxHp;
+        HasDied = false;
+        SetAnimation(1);
+        Animator.Play("Spawn", -1, 0f);
     }
 
     public void GotHit(int pDamage)
@@ -191,12 +201,6 @@ public class HealthSystem : NetworkBehaviour
     public void SetAnimation(int pValue)
     {
         Animator.enabled = pValue != 0;
-    }
-
-    public void Death()
-    {
-        UIManager.DeathText.text = "Until you died";
-        UIManager.ShowDeathMenu();
     }
 
     public void ChangeHp(int pValue)

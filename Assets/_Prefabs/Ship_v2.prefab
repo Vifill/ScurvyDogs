@@ -1103,14 +1103,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a1cb73baacf93e408b212713858a766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHp: 100
-  CurrentHp: 20
+  MaxHp: 10
+  CurrentHp: 10
   DamageSFX: {fileID: 8300000, guid: fcf7e4bd5d227204c98bd40959c52422, type: 3}
   HitParticle: {fileID: 1158542799619912, guid: c568c640288b86d44be1ae08586fee34,
     type: 2}
   DeathParticle: {fileID: 1355996012147160, guid: 05e734fad5d1ad34995858ca9bb9459f,
     type: 2}
-  SpawnsLeft: 0
+  SpawnsLeft: 2
 --- !u!124 &124344105324595728
 Behaviour:
   m_ObjectHideFlags: 1

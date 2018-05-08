@@ -19,7 +19,7 @@ public class UIManager : NetworkBehaviour
 
     private float HealthPercent;
     private float Timer;
-    private string NiceTime;
+    public string NiceTime;
     private bool IsVersusMode = false;
 
     private HealthSystem HealthSys;
@@ -82,12 +82,12 @@ public class UIManager : NetworkBehaviour
         }
     }
 
-    public void ShowDeathMenu()
+    public void ShowDeathMenu(string pString)
     {
         if (!IsVersusMode)
         {
             Time.timeScale = 0;
-            DeathTimeText.text = "You survived for " + NiceTime + " minutes";
+            DeathTimeText.text = "You survived for " + pString + " minutes";
             DeathMenu.SetActive(true);
         }   
     }
