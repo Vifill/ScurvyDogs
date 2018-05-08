@@ -186,8 +186,29 @@ public class AIMovement : NetworkBehaviour
         var randDir = UnityEngine.Random.Range(0, 361);
         Vector3 directionMod = Quaternion.AngleAxis(randDir, Vector3.up) * Vector3.forward;
         var distance = UnityEngine.Random.Range(0f, 1f) * MaxWaypointDistance;
-        
-        NextDestination = transform.position + (directionMod * distance);
+        var tmpPosition = transform.position + (directionMod * distance);
+
+        if (!CheckIfValidPosition(tmpPosition))
+        {
+            CreateNextDestinationPoint();
+        }
+
+        NextDestination = tmpPosition;
+    }
+
+    public static bool CheckIfValidPosition(Vector3 pPositionToCheck)
+    {
+        Vector3 tmpPos = pPositionToCheck + new Vector3(0,80,0);
+
+        RaycastHit hit;
+        if (Physics.Raycast(tmpPos, Vector3.down, out hit))
+        {
+            if (hit.transform.CompareTag("Ocean"))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     private bool IsPlayerClose()
@@ -197,5 +218,12 @@ public class AIMovement : NetworkBehaviour
             return false;
         }
         return Vector3.Distance(Player.transform.position, transform.position) < EngageDistance;
+    }
+
+    public void OnDrawGizmos()
+    {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawLine(transform.position, NextDestination);
+        
     }
 }

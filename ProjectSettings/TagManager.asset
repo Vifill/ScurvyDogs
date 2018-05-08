@@ -10,6 +10,7 @@ TagManager:
   - DeathMenu
   - Enemy
   - MainCanvas
+  - Ocean
   layers:
   - Default
   - TransparentFX

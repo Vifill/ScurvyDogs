@@ -23,9 +23,10 @@ GameObject:
   - component: {fileID: 23484620433084470}
   - component: {fileID: 95129943478868866}
   - component: {fileID: 114221402662722746}
+  - component: {fileID: 64284377056416790}
   m_Layer: 0
   m_Name: Ocean_Circular_v3_Layer_01
-  m_TagString: Untagged
+  m_TagString: Ocean
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59,7 +60,7 @@ GameObject:
   - component: {fileID: 4915976219397270}
   m_Layer: 0
   m_Name: Ocean
-  m_TagString: Untagged
+  m_TagString: Ocean
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -186,6 +187,20 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1254446973340882}
+  m_Mesh: {fileID: 4300000, guid: 899f5e4920fbdbd42b11bc64734ff91f, type: 3}
+--- !u!64 &64284377056416790
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1206225194828782}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 899f5e4920fbdbd42b11bc64734ff91f, type: 3}
 --- !u!95 &95129943478868866
 Animator:

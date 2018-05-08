@@ -28,6 +28,13 @@ public class EnemySpawner : MonoBehaviour {
         var randDir = Random.Range(0, 360);
         Vector3 directionMod = Quaternion.AngleAxis(randDir, Vector3.up) * Vector3.forward;
 
+        Vector3 tmpPos = players[Random.Range(0, players.Length)].transform.position + (directionMod * SpawnDist);
+        
+        if (!AIMovement.CheckIfValidPosition(tmpPos))
+        {
+            return FindSpawnPoint();
+        }
+
         return players[Random.Range(0,players.Length)].transform.position + (directionMod * SpawnDist);
     }
 
