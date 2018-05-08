@@ -41,10 +41,6 @@ public class MenuUIManager : MonoBehaviour
     public void ButtonStartClient()
     {
         CustomNetworkDiscoverer.Instance.ReceiveBraodcast();
-
-        //NetworkDiscoverer.Initialize();
-        //NetworkDiscoverer.StartAsClient();
-        //NetworkManager.StartClient();
     }
 
     public void JoinGame(string pIp)
