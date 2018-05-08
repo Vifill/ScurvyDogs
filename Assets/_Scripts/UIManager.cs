@@ -23,7 +23,6 @@ public class UIManager : NetworkBehaviour
     private bool IsVersusMode = false;
 
     private HealthSystem HealthSys;
-    //private NetworkManager NetworkManager;
     private GameControllerVersus GameControllerVersus;
 
     internal void Initialize(GameObject pGameObject)
@@ -66,12 +65,6 @@ public class UIManager : NetworkBehaviour
         Time.timeScale = pTimeScale;
     }
 
-    public void ButtonResumeGame()
-    {
-        //FindObjectOfType<InputController>().RpcShowPauseMenu(false, 1);
-        //ShowPauseMenu(false, 1);
-    }
-
     private void HpMeter()
     {
         HealthPercent = HealthSys.CurrentHp / 100;
@@ -89,7 +82,7 @@ public class UIManager : NetworkBehaviour
             Time.timeScale = 0;
             DeathTimeText.text = "You survived for " + pString + " minutes";
             DeathMenu.SetActive(true);
-        }   
+        }
     }
 
     public void HideDeath()
@@ -100,7 +93,7 @@ public class UIManager : NetworkBehaviour
 
     public void ReloadLevel(string pLevel)
     {
-        Scene scene = SceneManager.GetActiveScene();// SceneManager.LoadScene(scene.name);
+        Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
     }
 
