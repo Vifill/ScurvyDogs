@@ -37,12 +37,14 @@ public class MenuUIManager : MonoBehaviour
 
     public void ButtonStartHost()
     {
+        NetworkDiscoverer.Initialize();
         NetworkDiscoverer.StartAsServer();
         NetworkManager.StartHost();
     }
 
     public void ButtonStartClient()
     {
+        NetworkDiscoverer.Initialize();
         NetworkDiscoverer.StartAsClient();
         NetworkManager.StartClient();
     }
