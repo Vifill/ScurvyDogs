@@ -68,7 +68,8 @@ public class UIManager : NetworkBehaviour
 
     public void ButtonResumeGame()
     {
-        ShowPauseMenu(false, 1);
+        //FindObjectOfType<InputController>().RpcShowPauseMenu(false, 1);
+        //ShowPauseMenu(false, 1);
     }
 
     private void HpMeter()
