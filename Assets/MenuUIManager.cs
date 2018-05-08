@@ -12,11 +12,13 @@ public class MenuUIManager : MonoBehaviour
     private string Coop = "TestScene_Scurvy_Teddi";
     private string Versus = "TestScene_Versus";
     private NetworkManager NetworkManager;
+    private NetworkDiscovery NetworkDiscoverer;
 
     private void Start()
     {
         NetworkManager = FindObjectOfType<NetworkManager>();
         NetworkManager.onlineScene = Coop;
+        NetworkDiscoverer = FindObjectOfType<NetworkDiscovery>();
     }
 
     public void SelectGameMode()
@@ -35,11 +37,15 @@ public class MenuUIManager : MonoBehaviour
 
     public void ButtonStartHost()
     {
+        NetworkDiscoverer.Initialize();
+        NetworkDiscoverer.StartAsServer();
         NetworkManager.StartHost();
     }
 
     public void ButtonStartClient()
     {
+        NetworkDiscoverer.Initialize();
+        NetworkDiscoverer.StartAsClient();
         NetworkManager.StartClient();
     }
 
