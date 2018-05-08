@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
-using UnityEngine.Networking.Match;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class MenuUIManager : MonoBehaviour
 {

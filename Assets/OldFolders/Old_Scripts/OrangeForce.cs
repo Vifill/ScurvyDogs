@@ -2,33 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OrangeForce : MonoBehaviour {
-
+public class OrangeForce : MonoBehaviour
+{
     public GameObject OrangeParticle;
-    private HealthSystem healthSys;
-    private bool frozeVelocity = false;
+    private HealthSystem HealthSys;
+    private bool FrozeVelocity;
 	// Use this for initialization
-	void Start () {
-        healthSys = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthSystem>();
-        float rndX = UnityEngine.Random.Range(2.0f, 10.0f);
-        float rndZ = UnityEngine.Random.Range(2.0f, 10.0f);
+	void Start ()
+	{
+        HealthSys = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthSystem>();
+        float rndX = Random.Range(2.0f, 10.0f);
+        float rndZ = Random.Range(2.0f, 10.0f);
 
-        //GetComponent<Rigidbody>().AddExplosionForce(1.0f, transform.position - new Vector3(rndX, 20.0f, rndZ), 40.0f, 10.0f);
         GetComponent<Rigidbody>().velocity = transform.TransformDirection(new Vector3(rndX, 10.0f, rndZ));
-        //for (int i = 0; i < 3; i++)
-        //{            
-
-        //}
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
         if (transform.position.y <= 0)
         {
-            if (!frozeVelocity)
+            if (!FrozeVelocity)
             {
                 GetComponent<Rigidbody>().velocity = Vector3.zero;
-                frozeVelocity = true;
+                FrozeVelocity = true;
             }
             GetComponent<Rigidbody>().freezeRotation = true;
             GetComponent<Rigidbody>().AddForce(0f, 40f, 0f, ForceMode.Impulse);
@@ -39,7 +36,7 @@ public class OrangeForce : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
-            healthSys.ChangeHp(5);
+            HealthSys.ChangeHp(5);
             GetComponent<AudioSource>().Play();
             GetComponent<SphereCollider>().enabled = false;
             transform.GetChild(0).GetComponent<MeshRenderer>().enabled = false;
