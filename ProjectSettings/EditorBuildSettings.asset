@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/_Scenes/MainMenu.unity
     guid: c3eee7e6586373a44a6fd0a22e17ff7a
   - enabled: 1
-    path: Assets/_Scenes/TestScene_Scurvy_Teddi.unity
-    guid: d5a5d344abe95b343bd5cc306196cc91
+    path: Assets/_Scenes/Game_Versus.unity
+    guid: e102499795e74384fbe792b10e6d8ca4
   - enabled: 1
-    path: Assets/_Scenes/TestScene_Versus.unity
-    guid: 7fe4ebb84319e294dae8f01bde49dc1f
+    path: Assets/_Scenes/Game_Coop.unity
+    guid: a3b79184d1777c04b91453fe32f1f518
