@@ -192,6 +192,10 @@ public class AIMovement : NetworkBehaviour
 
     private bool IsPlayerClose()
     {
+        if (gameObject == null || Player == null)
+        {
+            return false;
+        }
         return Vector3.Distance(Player.transform.position, transform.position) < EngageDistance;
     }
 }

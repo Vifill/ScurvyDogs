@@ -183,11 +183,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114754648839306508, guid: 70fa39f8603305041a63a828849467b1,
-        type: 2}
-      propertyPath: m_SpawnPrefabs.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4925001463485714, guid: 70fa39f8603305041a63a828849467b1, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -219,28 +214,6 @@ Prefab:
     - target: {fileID: 4925001463485714, guid: 70fa39f8603305041a63a828849467b1, type: 2}
       propertyPath: m_RootOrder
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114754648839306508, guid: 70fa39f8603305041a63a828849467b1,
-        type: 2}
-      propertyPath: m_SpawnPrefabs.Array.data[1]
-      value: 
-      objectReference: {fileID: 1136260951534024, guid: a1daf122fb344b64aba76a7874178ffc,
-        type: 2}
-    - target: {fileID: 114754648839306508, guid: 70fa39f8603305041a63a828849467b1,
-        type: 2}
-      propertyPath: m_SpawnPrefabs.Array.data[2]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114754648839306508, guid: 70fa39f8603305041a63a828849467b1,
-        type: 2}
-      propertyPath: m_SpawnPrefabs.Array.data[0]
-      value: 
-      objectReference: {fileID: 1978986624825958, guid: 5ad811e86250bd348a06f2308e67f4e3,
-        type: 2}
-    - target: {fileID: 114100493286600996, guid: 70fa39f8603305041a63a828849467b1,
-        type: 2}
-      propertyPath: showGUI
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 70fa39f8603305041a63a828849467b1, type: 2}
@@ -514,7 +487,7 @@ MonoBehaviour:
   spawnRate: 20
   maxEnemy: 10
   enemyCount: 0
-  EnemyPrefab: {fileID: 1978986624825958, guid: 5ad811e86250bd348a06f2308e67f4e3,
+  EnemyPrefab: {fileID: 1757885919889210, guid: ebbb78a30ef810545bf452dd23d1a5ec,
     type: 2}
 --- !u!114 &1768697533
 MonoBehaviour:
