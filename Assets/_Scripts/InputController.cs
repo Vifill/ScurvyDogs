@@ -29,16 +29,6 @@ public class InputController : NetworkBehaviour
             return;
 	    }
 
-        //if (Input.GetKeyDown(KeyCode.Mouse0))
-        //{
-        //    ShootingSystem.CmdShoot(ShootingSystem.ShipSide.Left);
-        //}
-
-        //if (Input.GetKeyDown(KeyCode.Mouse1))
-        //{
-        //    ShootingSystem.CmdShoot(ShootingSystem.ShipSide.Right);
-        //}
-
 	    if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
 	    {
 	        if (Time.timeScale == 1)

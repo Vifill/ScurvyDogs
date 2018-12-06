@@ -9,6 +9,7 @@ public class EnemySpawner : MonoBehaviour {
     public float SpawnDist = 200;
     public float spawnRate = 20f;
     public float maxEnemy = 5f;
+    [SyncVar]
     public float enemyCount;
     public GameObject EnemyPrefab;
 

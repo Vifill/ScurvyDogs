@@ -6,6 +6,7 @@ public class OrangeForce : MonoBehaviour
 {
     public GameObject OrangeParticle;
     private bool FrozeVelocity;
+    private Rigidbody Rb;
 	// Use this for initialization
 	void Start ()
 	{
@@ -13,23 +14,32 @@ public class OrangeForce : MonoBehaviour
         float rndX = Random.Range(2.0f, 10.0f);
         float rndZ = Random.Range(2.0f, 10.0f);
 
-        GetComponent<Rigidbody>().velocity = transform.TransformDirection(new Vector3(rndX, 10.0f, rndZ));
+        Rb = GetComponent<Rigidbody>();
+        Rb.velocity = transform.TransformDirection(new Vector3(rndX, 10.0f, rndZ));
+        StartCoroutine(OrangeIdle());
     }
 	
-	// Update is called once per frame
-	void Update ()
-	{
-        if (transform.position.y <= 0)
+    private IEnumerator OrangeIdle()
+    {
+        while (!FrozeVelocity)
         {
-            if (!FrozeVelocity)
+            if (transform.position.y <= 0)
             {
-                GetComponent<Rigidbody>().velocity = Vector3.zero;
-                FrozeVelocity = true;
+                if (!FrozeVelocity)
+                {
+                    Rb.velocity = Vector3.zero;
+                    FrozeVelocity = true;
+                }
+                
             }
-            GetComponent<Rigidbody>().freezeRotation = true;
-            GetComponent<Rigidbody>().AddForce(0f, 40f, 0f, ForceMode.Impulse);
         }
-	}
+        while (true)
+        {
+            yield return new WaitForSeconds(2);
+            Rb.freezeRotation = true;
+            Rb.AddForce(0f, 40f, 0f, ForceMode.Impulse);
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {

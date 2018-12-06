@@ -65,7 +65,7 @@ public class EnemyHealth : NetworkBehaviour {
         HealthBarCanvas.SetActive(false);
         GetComponent<ShootingSystem>().enabled = false;
         GetComponent<AudioSource>().PlayOneShot(DeathSFX);
-        //eSpawn.enemyCount -= 1;
+        eSpawn.enemyCount -= 1;
         isDead = true;
         //DestroyTheShip();
         Invoke("DestroyTheShip", 2f);

@@ -23,11 +23,6 @@ public class EndlessSea : MonoBehaviour {
         }
     }
 
-    // Update is called once per frame
-    void Update () {
-
-	}
-
     private void MakeSurroudingSea()
     {
         Vector3 parentPos = transform.parent.position;

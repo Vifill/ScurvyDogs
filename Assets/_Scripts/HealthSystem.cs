@@ -49,10 +49,7 @@ public class HealthSystem : NetworkBehaviour
                 AudioTimer = 0;
             }
         }
-        if (CurrentHp >= MaxHp)
-        {
-            CurrentHp = MaxHp;
-        }
+        
     }
     
     private void CheckIfDead()
@@ -208,6 +205,10 @@ public class HealthSystem : NetworkBehaviour
     public void ChangeHp(int pValue)
     {
         CurrentHp += pValue;
+        if (CurrentHp >= MaxHp)
+        {
+            CurrentHp = MaxHp;
+        }
         CheckIfDead();
     }
 
