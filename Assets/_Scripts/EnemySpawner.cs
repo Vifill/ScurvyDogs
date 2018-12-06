@@ -8,7 +8,7 @@ public class EnemySpawner : MonoBehaviour {
 
     public float SpawnDist = 200;
     public float spawnRate = 20f;
-    public float maxEnemy = 10f;
+    public float maxEnemy = 5f;
     public float enemyCount;
     public GameObject EnemyPrefab;
 
@@ -48,13 +48,17 @@ public class EnemySpawner : MonoBehaviour {
     {
         while (true)
         {
-            SpawnEnemy();
-            //enemyCount++;
-
-            if (spawnRate >= 5f)
+            if (enemyCount < maxEnemy)
             {
-                spawnRate -= 1;
+                SpawnEnemy();
+                enemyCount++;
+
+                if (spawnRate >= 5f)
+                {
+                    spawnRate -= 1;
+                }
             }
+            
             yield return new WaitForSeconds(spawnRate);
         }
     }
