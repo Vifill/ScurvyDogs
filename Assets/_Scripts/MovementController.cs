@@ -28,6 +28,7 @@ public class MovementController : NetworkBehaviour
     public GameObject HullToRotate;
     public GameObject[] Sails;
     public Transform HullModel;
+    public Joystick Joystick;
 
     private GameObject CurrentSails;
     private Rigidbody Rigidbody;
@@ -45,6 +46,8 @@ public class MovementController : NetworkBehaviour
 	{
 	    Rigidbody = GetComponent<Rigidbody>();
         ChangeSails(CurrentSpeedMode);
+        Joystick = FindObjectOfType<FixedJoystick>();
+        Turning = 0;
     }
 	
 	// Update is called once per frame
@@ -60,33 +63,52 @@ public class MovementController : NetworkBehaviour
     
     private void RegisterInput()
     {
-        if(Input.GetKeyDown(KeyCode.W))
+        Debug.Log("Horizontal = "+Joystick.Horizontal);
+        Debug.Log("Vertical = "+Joystick.Vertical);
+
+        if (Joystick.Vertical >= 0.9f)
         {
             if (CurrentSpeedMode < SpeedMode.High)
             {
                 CmdChangeSails(1);
             }
         }
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Joystick.Vertical <= -0.9f)
         {
             if (CurrentSpeedMode > SpeedMode.Low)
             {
                 CmdChangeSails(-1);
             }
         }
+        Turning = Joystick.Horizontal;
+        
+        //if (Input.GetKeyDown(KeyCode.W) || Joystick.Horizontal >= .5f)
+        //{
+        //    if (CurrentSpeedMode < SpeedMode.High)
+        //    {
+        //        CmdChangeSails(1);
+        //    }
+        //}
+        //if (Input.GetKeyDown(KeyCode.S) || Joystick.Horizontal >= -.5f)
+        //{
+        //    if (CurrentSpeedMode > SpeedMode.Low)
+        //    {
+        //        CmdChangeSails(-1);
+        //    }
+        //}
 
-        if (Input.GetKey(KeyCode.A))
-        {
-            Turning = -1;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            Turning = 1;
-        }
-        else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
-        {
-            Turning = 0;
-        }
+        //if (Input.GetKey(KeyCode.A) || Joystick.Vertical >= .1f)
+        //{
+        //    Turning = -1;
+        //}
+        //if (Input.GetKey(KeyCode.D) || Joystick.Vertical >= -.1f)
+        //{
+        //    Turning = 1;
+        //}
+        //else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D) || Joystick.Vertical == 0)
+        //{
+        //    Turning = 0;
+        //}
     }
 
     [Command]
