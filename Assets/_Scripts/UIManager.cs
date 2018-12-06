@@ -24,10 +24,12 @@ public class UIManager : NetworkBehaviour
 
     private HealthSystem HealthSys;
     private GameControllerVersus GameControllerVersus;
+    private ShootingSystem ShootingSystem;
 
     internal void Initialize(GameObject pGameObject)
     {
         GameControllerVersus = FindObjectOfType<GameControllerVersus>();
+        ShootingSystem = FindObjectOfType<ShootingSystem>();
         if (GameControllerVersus != null)
         {
             IsVersusMode = true;
@@ -113,5 +115,15 @@ public class UIManager : NetworkBehaviour
         {
             NetworkManager.singleton.StopClient();
         }
+    }
+
+    public void ShootLeftButton()
+    {
+        ShootingSystem.CmdShoot(ShootingSystem.ShipSide.Left);
+    }
+
+    public void ShootingRightButton()
+    {
+        ShootingSystem.CmdShoot(ShootingSystem.ShipSide.Right);
     }
 }
