@@ -19,6 +19,7 @@ public class OrangeForce : MonoBehaviour
         StartCoroutine(OrangeIdle());
     }
 	
+    // Removed Update function and replaced with coroutine
     private IEnumerator OrangeIdle()
     {
         while (!FrozeVelocity)

@@ -9,7 +9,6 @@ public class EnemySpawner : MonoBehaviour {
     public float SpawnDist = 200;
     public float spawnRate = 20f;
     public float maxEnemy = 5f;
-    [SyncVar]
     public float enemyCount;
     public GameObject EnemyPrefab;
 
@@ -53,7 +52,7 @@ public class EnemySpawner : MonoBehaviour {
             {
                 SpawnEnemy();
                 enemyCount++;
-
+                // Added Enemy Counter to make not more than 6 enemies active at a time
                 if (spawnRate >= 5f)
                 {
                     spawnRate -= 1;

@@ -12,6 +12,7 @@ public class CannonBallController : NetworkBehaviour {
         StartCoroutine(DestroyCoroutine());
 	}
 
+    // replaced Update
     private IEnumerator DestroyCoroutine()
     {
         yield return new WaitForSeconds(4f);

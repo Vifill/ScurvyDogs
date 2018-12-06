@@ -49,7 +49,7 @@ public class HealthSystem : NetworkBehaviour
                 AudioTimer = 0;
             }
         }
-        
+        // Moved Check if dead and check health into separate functions being called only once instead of every frame
     }
     
     private void CheckIfDead()
