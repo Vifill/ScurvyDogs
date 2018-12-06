@@ -63,9 +63,6 @@ public class MovementController : NetworkBehaviour
     
     private void RegisterInput()
     {
-        Debug.Log("Horizontal = "+Joystick.Horizontal);
-        Debug.Log("Vertical = "+Joystick.Vertical);
-
         if (Joystick.Vertical >= 0.9f)
         {
             if (CurrentSpeedMode < SpeedMode.High)
@@ -81,34 +78,6 @@ public class MovementController : NetworkBehaviour
             }
         }
         Turning = Joystick.Horizontal;
-        
-        //if (Input.GetKeyDown(KeyCode.W) || Joystick.Horizontal >= .5f)
-        //{
-        //    if (CurrentSpeedMode < SpeedMode.High)
-        //    {
-        //        CmdChangeSails(1);
-        //    }
-        //}
-        //if (Input.GetKeyDown(KeyCode.S) || Joystick.Horizontal >= -.5f)
-        //{
-        //    if (CurrentSpeedMode > SpeedMode.Low)
-        //    {
-        //        CmdChangeSails(-1);
-        //    }
-        //}
-
-        //if (Input.GetKey(KeyCode.A) || Joystick.Vertical >= .1f)
-        //{
-        //    Turning = -1;
-        //}
-        //if (Input.GetKey(KeyCode.D) || Joystick.Vertical >= -.1f)
-        //{
-        //    Turning = 1;
-        //}
-        //else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D) || Joystick.Vertical == 0)
-        //{
-        //    Turning = 0;
-        //}
     }
 
     [Command]

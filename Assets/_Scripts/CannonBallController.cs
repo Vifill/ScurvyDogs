@@ -9,16 +9,23 @@ public class CannonBallController : NetworkBehaviour {
 	void Start ()
     {
         gameObject.GetComponent<Rigidbody>().AddRelativeForce(new Vector3(0, 0, 100), ForceMode.VelocityChange);
+        StartCoroutine(DestroyCoroutine());
 	}
-	
-	// Update is called once per frame
-	void Update ()
+
+    private IEnumerator DestroyCoroutine()
     {
-		if (transform.position.y < 0)
-        {
-            Destroy(gameObject);
-        }
-	}
+        yield return new WaitForSeconds(4f);
+        Destroy(gameObject);
+    }
+
+    // Update is called once per frame
+    //void Update ()
+    //   {
+    //	if (transform.position.y < 0)
+    //       {
+    //           Destroy(gameObject);
+    //       }
+    //}
 
     private void OnTriggerEnter(Collider collider)
     {
